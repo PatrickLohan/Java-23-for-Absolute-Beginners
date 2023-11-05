@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.apress.bgn</groupId>
+    <artifactId>java-23-for-absolute-beginners</artifactId>
+    <name>Java for Absolute Beginners, 3nd edition</name>
+    <description> This project is designed to gradually introduce you to the
+        Java language syntax and the proper way to design solutions using it.
+        The syntax used contains elements from the beginning to version 23 of Java.</description>
+    <version>3.0-SNAPSHOT</version>
+    <url>https://www.apress.com/gp/book/9781484270790</url> <!-- DOC-TODO change this -->
+    <packaging>pom</packaging>
+
+
+
+    <developers>
+        <developer>
+            <name>Iuliana Cosmina</name>
+            <organization>Cloudsoft</organization>
+            <roles>
+                <role>Judge</role>
+                <role>Jury</role>
+                <role>Executioner</role>
+            </roles>
+            <email>Iuliana.Cosmina@gmail.com</email>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <site>
+            <id>${project.artifactId}</id>
+            <url>https://link.springer.com/book/10.1007/978-1-4842-7080-6</url>
+        </site>
+    </distributionManagement>
+
+</project>
