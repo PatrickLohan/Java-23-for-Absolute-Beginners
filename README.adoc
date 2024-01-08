@@ -2,7 +2,7 @@
 
 '''
 
-This repository accompanies book *Java for Absolute Beginners* (https://link.springer.com/book/10.1007/978-1-4842-7080-6) by Iuliana Cosmina(Apress, 2018).
+This repository accompanies book *Java for Absolute Beginners* (https://link.springer.com/book/10.1007/978-1-4842-7080-6) by Iuliana Cosmina(Apress, 2024).
 
 image::java-23-for-beginners.png[Cover image]
 
@@ -12,6 +12,7 @@ Download the files as a zip using the green button, or clone the repository to y
 
 *Release v3.0* corresponds to the code in the second edition of the published book, without corrections or updates.
 This project was built successfully with JDK versions 23 and Maven version 4.0.0.
+
 The syntax is specific to Java versions up to and including 23.
 
 === Corrections
@@ -46,7 +47,7 @@ If you want to generate and run the project site run
 mvn clean install site site:stage site:run -Pdocs
 ----
 
-This project does not require installing Apache Maven, because it was configured to be run with an Apache Maven Wrapper. All previous commands can be  run with `./mvnw` instead of `mvn`.
+This project does not necessarily require installing Apache Maven, because it was configured to be run with an Apache Maven Wrapper. All previous commands can be  run with `./mvnw` instead of `mvn`.
 
 The `docs` maven profile excludes a few modules from generating docs, because of failures caused by non-modular dependencies and plugin incompatibilities.
 

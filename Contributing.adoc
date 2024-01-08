@@ -17,7 +17,6 @@ Thank you for your contribution!
 
 Copyright for Apress book content belongs to the Apress and author(s). However, under fair use you are encouraged to contribute minor corrections and updates for the benefit of the author(s) and other readers.
 
-
 === How to Contribute
 
 If you notice any mistakes or confusing phrasing in the book contents, first consult the Errata in this repository and make sure the mistake was not already covered there.

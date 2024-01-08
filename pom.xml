@@ -6,15 +6,62 @@
 
     <groupId>com.apress.bgn</groupId>
     <artifactId>java-23-for-absolute-beginners</artifactId>
+    <version>${revision}</version> <!-- read from .mvn/maven.config -->
+    <packaging>pom</packaging> <!-- this is specific to the parent pom.xml -->
+
     <name>Java for Absolute Beginners, 3nd edition</name>
     <description> This project is designed to gradually introduce you to the
         Java language syntax and the proper way to design solutions using it.
         The syntax used contains elements from the beginning to version 23 of Java.</description>
-    <version>3.0-SNAPSHOT</version>
-    <url>https://www.apress.com/gp/book/9781484270790</url> <!-- DOC-TODO change this -->
-    <packaging>pom</packaging>
+    <url>https://www.apress.com/gp/book/9781484270790</url> <!-- TODO change this -->
 
+    <modules>
+        <module>chapter00</module>
+        <module>chapter01</module>
+    </modules>
 
+    <properties>
+        <revision>1.0-SNAPSHOT</revision>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>21</java.version>
+    </properties>
+
+    <build>
+        <defaultGoal>clean install</defaultGoal> <!-- TODO change this to clean site at the right moment -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.12.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.2.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <!-- since version 3.10.1-->
+                    <release>${java.version}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
     <developers>
         <developer>
