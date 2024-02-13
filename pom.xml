@@ -18,12 +18,22 @@
     <modules>
         <module>chapter00</module>
         <module>chapter01</module>
+        <module>chapter02</module>
+        <module>chapter03</module>
+        <module>chapter04</module>
+        <module>chapter05</module>
+        <module>chapter06</module>
+        <module>chapter07</module>
+        <module>chapter08</module>
+        <module>chapter09</module>
     </modules>
 
     <properties>
         <revision>1.0-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>21</java.version>
+
+        <log4j.version>3.0.0-beta1</log4j.version>
     </properties>
 
     <build>
@@ -44,6 +54,16 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.3.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.1.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.1</version>
                 </plugin>
             </plugins>
         </pluginManagement>

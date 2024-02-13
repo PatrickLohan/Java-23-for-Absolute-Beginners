@@ -6,21 +6,13 @@
 
     <parent>
         <groupId>com.apress.bgn</groupId>
-        <artifactId>java-23-for-absolute-beginners</artifactId>
+        <artifactId>chapter05</artifactId>
     </parent>
 
-    <artifactId>chapter00</artifactId>
-    <name>Chapter 00</name>
-    <description>Base classes to use as dependencies in other projects.</description>
+    <artifactId>references</artifactId>
+    <name>Chapter 05: References</name>
+    <description>Contains Reference Types examples for Chapter 5.</description>
     <packaging>jar</packaging>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
@@ -33,7 +25,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                com.apress.bgn.zero.TopWithNested
+                                com.apress.bgn.five.ReferencesMain
                             </mainClass>
                         </manifest>
                     </archive>
@@ -41,5 +33,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
