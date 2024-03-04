@@ -29,6 +29,8 @@ package com.apress.bgn.one;
 
 import java.util.List;
 
+import static java.lang.StringTemplate.STR;
+
 /**
  * Created by iuliana on 07/01/2024
  *
@@ -36,16 +38,10 @@ import java.util.List;
  */
 public class Example01 {
 
+    // starting with Java 21 (preview feature)
     public static void main(String[] args) {
-
-        List<String> items = List.of("1", "a", "2", "a", "3", "a");
-
-        items.forEach(item -> {
-            if (item.equals("a")) {
-                System.out.println("A");
-            } else {
-                System.out.println("Not A");
-            }
-        });
+        var items = List.of("1", "a", "2", "a", "3", "a");
+        items.forEach(item ->
+                System.out.println(STR."\{item.equals("a") ? "A" : "Not A" }"));
     }
 }
