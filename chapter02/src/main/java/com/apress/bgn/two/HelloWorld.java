@@ -28,7 +28,7 @@ SOFTWARE.
 package com.apress.bgn.two;
 
 /**
- * Created by iuliana on 15/01/2024
+ * Created by iuliana.cosmina  on 15/01/2024
  */
 public class HelloWorld {
     public static void main(String... args) {

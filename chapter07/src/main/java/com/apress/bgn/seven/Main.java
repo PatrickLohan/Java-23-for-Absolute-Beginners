@@ -28,7 +28,7 @@ SOFTWARE.
 package com.apress.bgn.seven;
 
 /**
- * Created by iuliana on 12/02/2024
+ * Created by iuliana.cosmina  on 12/02/2024
  */
 public class Main {
     public static void main(String... args) {
