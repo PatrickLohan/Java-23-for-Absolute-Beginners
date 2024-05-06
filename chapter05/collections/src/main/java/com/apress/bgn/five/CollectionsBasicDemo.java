@@ -26,14 +26,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
-
 /**
- * Created by iuliana.cosmina  on 12/02/2024
- *
+ * Created by iuliana.cosmina on 28/04/2024
  * @version TODO
- */
-public class PrimitivesMain {
-    public static void main(String... args) {
-
-    }
+ */public class CollectionsBasicDemo {
 }
