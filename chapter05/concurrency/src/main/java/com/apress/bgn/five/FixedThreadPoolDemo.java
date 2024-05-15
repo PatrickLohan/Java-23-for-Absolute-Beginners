@@ -26,8 +26,37 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.ArrayList;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+
 /**
  * Created by iuliana.cosmina on 30/04/2024
- * @version TODO
- */public class FixedThreadPoolDemo {
+ */
+public class FixedThreadPoolDemo {
+    public static void main() {
+        var rdc = new RandomDurationCallable();
+        try (var executor = Executors.newFixedThreadPool(10)) {
+            var assignments = new ArrayList<RandomDurationCallable>();
+            for (int i = 0; i < 100; i++) {
+                assignments.add(rdc);
+            }
+            try {executor.invokeAll(assignments);} catch (InterruptedException _) {}
+        }
+    }
+}
+
+class RandomDurationCallable  implements Callable<Boolean>  {
+    @Override
+    public Boolean call() {
+        System.out.println(STR."\{Thread.currentThread().getName()} started...");
+        for (int i = 0; i < 10; ++i) {
+            try {
+                Thread.sleep(i * 10);
+            } catch (InterruptedException _) {}
+        }
+        System.out.println(STR."\{Thread.currentThread().getName()} ended.");
+        return true; // assume done
+    }
 }

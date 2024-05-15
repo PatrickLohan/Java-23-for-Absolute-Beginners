@@ -26,8 +26,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
-/**
- * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class JsonTemplateDemo {
+
+import com.apress.bgn.four.classes.Musician;
+import org.json.JSONObject;
+
+
+public class JsonTemplateDemo {
+
+    public static void main() {
+        var bryce = new Musician("Bryce", 38, 1.72f, "High School Rock", "Metal");
+
+        var JSON = StringTemplate.Processor.of(
+                (StringTemplate template) -> new JSONObject(template.interpolate())
+        );
+
+        var introduction = JSON."""
+            {
+                "message1" : "My name is \{bryce.getName()}",
+                "message2" : "and I am \{bryce.getAge()} years old."
+            }
+            """;
+        System.out.println(introduction.getClass());
+        System.out.println(introduction);
+    }
 }

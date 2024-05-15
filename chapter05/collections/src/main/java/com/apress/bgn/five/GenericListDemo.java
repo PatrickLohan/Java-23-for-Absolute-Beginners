@@ -26,8 +26,85 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
+import static java.lang.System.out;
+
 /**
  * Created by iuliana.cosmina on 29/04/2024
- * @version TODO
- */public class GenericListDemo {
+ */
+public class GenericListDemo {
+    public static void main() {
+        List<String> list = new ArrayList<>();
+        list.add("one");
+        list.add("two");
+        list.add("three");
+
+        out.println("-------- fori ----------"); // imperative
+        for (int i = 0; i < list.size(); i++) {
+            out.print(STR."\{list.get(i)} ");
+        }
+
+        // JDK 5
+        out.println("\n--------- enhanced for ---------"); // imperative
+        for (var str : list) {
+            out.print(STR."\{str} ");
+        }
+
+        out.println("\n-------- Iterator ----------"); // imperative using iterator
+        for (var it = list.iterator(); it.hasNext();) {
+            out.print(STR."\{it.next()} ");
+        }
+
+        // imperative, can traverse it starting at the end, get access index, can remove and add elements
+        out.println("\n-------- ListIterator ----------");
+        for (var it = list.listIterator(); it.hasNext();) {
+            out.print(STR."\{it.next()} ");
+        }
+
+        // JDK 1.8
+        out.println("\n--------- forEach ---------"); // most simple functional traversal
+        list.forEach(s -> out.print(STR."\{s} "));
+
+        // functional, converts to stream before traversal;
+        // advantage: possibility to stream operations like filter, map, distinct, etc.
+        out.println("\n--------- stream().forEach ---------");
+        list.stream().forEach(s -> out.print(STR."\{s} "));
+
+        // JDK 1.8
+        // functional, using a range to generate indexes for the traversal
+        out.println("\n-------- range ----------");
+        IntStream.range(0, list.size())
+                .forEach(i -> out.print(STR."\{list.get(i)} "));
+
+        // functional, using a rangeClosed() to generate indexes for the traversal
+        out.println("\n-------- rangeClosed ----------");
+        IntStream.rangeClosed(0, list.size()-1)
+                .forEach(i -> out.print(STR."\{list.get(i)} "));
+
+        // all new in JDK 21
+        var reversed = list.reversed();
+        out.println(STR."[after reversed()]:\{reversed}");
+        out.println("---------------------------------------------------");
+
+        out.println(STR."[first element]: \{list.getFirst()}"); // list.get(0)
+        out.println(STR."[last element]: \{list.getLast()}");   // list.get(list.size()-1)
+        out.println("---------------------------------------------------");
+
+        out.println(STR."[original list]: \{list}");
+        list.addFirst("zero");                        // list.add(0, "zero");
+        out.println(STR."[after addFirst(..)]: \{list}");
+        list.removeFirst();                             // list.remove(0);
+        out.println(STR."[after removeFirst(..)]: \{list}");
+        out.println("---------------------------------------------------");
+
+        list.addLast("four");                       // list.add("four");
+        out.println(STR."[after addLast(..)]: \{list}");
+        list.removeLast();                             //list.remove(list.size()-1);
+        out.println(STR."[after removeLast(..)]\{list}");
+    }
+
 }

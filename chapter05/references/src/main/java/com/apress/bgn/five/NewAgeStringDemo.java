@@ -26,8 +26,61 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.Arrays;
+
+import static java.lang.System.out;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class NewAgeStringDemo {
+ */
+public class NewAgeStringDemo {
+
+    public static void main() {
+        var lyrics = """
+                    Do not waste this evening
+               \tBaby, I'm begging you!   
+               Your big imagination's playing its tricks on you   
+                    If you think my up and leaving's something I'm going to do,   
+               \tFeel my chest when I look at you
+               Baby you...    
+               """;
+
+        out.println("Original text: \n" + lyrics.strip());
+        out.println("--------");
+
+        /* Java 11 methods */
+        out.println("------ Java 11 ------");
+        out.println(" -- lyrics.strip() -- \n" + lyrics.strip());
+        out.println(" -- lyrics.stripLeading() -- \n" + lyrics.stripLeading());
+        out.println(" -- lyrics.stripTrailing() -- \n" + lyrics.stripTrailing());
+        out.println(" -- lyrics.isBlank() -- \n" + lyrics.isBlank());
+        out.println(" -- lyrics.lines() -- ");
+        lyrics.lines().forEach(out::println);
+        out.println(" -- lyrics.repeat(3) -- \n" + "la".repeat(3));
+
+        /* Java 12 methods */
+        out.println("------ Java 12 ------");
+        out.println(" -- lyrics.indent(4) -- \n" + lyrics.indent(4));
+
+
+        /* Java 15 methods */
+        out.println("------ Java 15 ------");
+        var you = "you";
+        var lyrics2 = """
+               |     Do not waste this evening
+               |\tBaby, I'm begging %s!   
+               |Your big imagination's playing its tricks on %s   
+               |     If you think my up and leaving's something I'm going to do,   
+               |\tFeel my chest when I look at %s
+               |Baby %s...    
+               """;
+        out.println(" --lyrics2.formatted(you, you, you, you) -- \n" + lyrics2.formatted(you, you, you, you));
+
+        /* Java 21 methods */
+        out.println("------ Java 21 ------");
+        out.println(" --  lyrics.indexOf('y', 30,40) -- \n" + lyrics.indexOf('y', 30,40));
+        out.println(" --  lyrics.indexOf(\"you\", 30,60) -- \n" + lyrics.indexOf("you", 30,60));
+        out.println(" --  lyrics.splitWithDelimiters(\"you\", 80) -- \n" + Arrays.toString(lyrics.splitWithDelimiters("you", 80)));
+    }
 }

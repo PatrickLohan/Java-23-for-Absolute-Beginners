@@ -43,7 +43,7 @@ public enum Gender {
     private final int repr;
     private final String descr;
 
-    Gender(int repr, String descr) {
+    private Gender(int repr, String descr) {
         this.repr = repr;
         this.descr = descr;
     }

@@ -26,8 +26,32 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import com.apress.bgn.four.classes.Musician;
+
+import java.util.Date;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class StringTemplatesDemo {
+ */
+public class StringTemplatesDemo {
+    public static void main() {
+        var bryce = new Musician("Bryce", 38, 1.72f, "High School Rock", "Metal");
+
+        var introduction = STR."My name is \{bryce.getName()}, and I am \{bryce.getAge()} years old.";
+        System.out.println(introduction);
+
+        // -----------------------
+
+        introduction = STR."""
+            My name is \{bryce.getName()},
+            and I am \{bryce.getAge()} years old.
+            """;
+        System.out.println(introduction);
+
+        String longTime = STR."Today is \{new Date().getTime()}";
+        System.out.println(longTime);
+
+        System.out.println(STR."\{Integer.MAX_VALUE}");
+    }
 }

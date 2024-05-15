@@ -27,13 +27,34 @@ SOFTWARE.
 */
 package com.apress.bgn.five;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by iuliana.cosmina  on 12/02/2024
- *
- * @version TODO
  */
-public class DateMain {
-    public static void main(String... args) {
+public class DateDemo {
+    public static void main() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date currentDate = new Date();
+        System.out.println(STR."Today: \{sdf.format(currentDate)}");
 
+        //deprecated since 1.1
+        Date johnBirthday = new Date(77, 9, 16);
+        System.out.println(STR."John’s Birthday: \{sdf.format(johnBirthday)}");
+
+        int day = johnBirthday.getDay();
+        System.out.println(STR."Day: \{day}");
+        int month = johnBirthday.getMonth() + 1;
+        System.out.println(STR."Month: \{month}");
+        int year = johnBirthday.getYear();
+        System.out.println(STR."Year: \{year}");
+
+        try {
+            Date johnBirthday2 = sdf.parse("16-10-1977");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -26,8 +26,56 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.time.Duration;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeoutException;
+import java.util.stream.Collectors;
+
+import static com.apress.bgn.five.VirtualThreadsExecutorDemo.RND;
+
+import static java.util.concurrent.StructuredTaskScope.*;
+import static java.lang.System.out;
+
 /**
  * Created by iuliana.cosmina on 06/05/2024
- * @version TODO
- */public class StructuredConcurrencyDemoTwo {
+ */
+public class StructuredConcurrencyDemoTwo {
+
+    public static void main() {
+        var d = new StructuredConcurrencyDemoTwo();
+        List<Subtask<Integer>> subtasks = new ArrayList<>();
+        var start = Instant.now();
+        try (var scope = new ShutdownOnFailure()) {
+            for (int i = 0; i < 10; i++) {
+                subtasks.add(scope.fork(() -> d.genValue()));
+            }
+
+            scope.joinUntil(Instant.now().plusSeconds(5));
+            scope.throwIfFailed(t -> new IllegalStateException(STR."Well this sucks!  \{t.getMessage()}"));
+            // if all subtasks complete successfully
+            var result = subtasks.stream()
+                    .map(Subtask::get)
+                    .collect(Collectors.toList());
+            out.println(STR."All results: \{result}");
+        } catch (InterruptedException | TimeoutException | IllegalStateException e) {
+            System.err.println(STR."Some tasks have failed. \{e.getMessage()}");
+            subtasks.forEach(t -> out.println(
+                    STR."""
+                         task\{subtasks.indexOf(t)}: \{t.state()}, result : \{t.state() == Subtask.State.SUCCESS ? t.get() : "Not Available"}""")
+            );
+        }
+        out.println(STR."Execution time : \{Duration.between(start, Instant.now()).toMillis()}ms");
+    }
+
+    Integer genValue() throws InterruptedException {
+        var generatedVal = RND.nextInt();
+        if(generatedVal % 11 ==0) {
+            throw new IllegalStateException("This value is bad, bad bad...");
+        }
+        return generatedVal;
+    }
+
 }

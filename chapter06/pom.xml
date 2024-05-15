@@ -33,7 +33,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                com.apress.bgn.six.Main
+                                com.apress.bgn.six.OperatorDemo
                             </mainClass>
                         </manifest>
                     </archive>

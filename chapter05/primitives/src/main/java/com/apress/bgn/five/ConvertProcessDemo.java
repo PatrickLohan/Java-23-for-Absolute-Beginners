@@ -26,8 +26,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class ConvertProcessDemo {
+ */
+public class ConvertProcessDemo {
+    private boolean done;
+    public boolean isDone() {
+        return done;
+    }
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    public static void main(String... args) {
+        ConvertProcessDemo cp = new ConvertProcessDemo();
+        System.out.println("Default value = " + cp.isDone());
+
+    }
 }

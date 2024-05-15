@@ -26,8 +26,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+import static java.lang.System.out;
+
 /**
  * Created by iuliana.cosmina on 30/04/2024
- * @version TODO
- */public class NewTheadSyntax21Demo {
+ */
+public class NewTheadSyntax21Demo {
+    public static void main() {
+        // Os Thread
+        Thread.ofPlatform()
+                .name("Thread-P")
+                .start(() -> out.println(STR." >> Hi, I am \{Thread.currentThread().getName()} and I am an Platform thread! "));
+
+        // Virtual thread
+        Thread.startVirtualThread(() -> out.println(STR." >> Hi, I am \{Thread.currentThread()} and I am a Virtual thread!"));
+
+        // using VirtualThreadBuilder 'under the bonnet'
+        Thread.ofVirtual()
+                .name("Thread-V1")
+                .start(() -> out.println(STR." >> Hi, I am \{Thread.currentThread().getName()} and I am also a Virtual thread! "));
+
+        // or creating it unstarted
+        Thread vt = Thread.ofVirtual()
+                .name("Thread-V2")
+                .unstarted(() -> out.println(STR." >> Hi, I am \{Thread.currentThread().getName()} and I am also a Virtual thread! "));
+        vt.start();
+
+        try {
+            Thread.sleep(2000); // making sure 'main' thread finishes execution last
+        } catch (InterruptedException _) {}
+    }
 }

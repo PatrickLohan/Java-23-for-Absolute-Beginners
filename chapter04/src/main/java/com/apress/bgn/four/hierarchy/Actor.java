@@ -26,8 +26,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.four.hierarchy;
+
+import java.util.List;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class Actor {
+ */
+public interface Actor extends Artist {
+    List<String> getFilms();
+
+    void setFilms(List<String> films);
+
+    void addFilm(String filmName);
 }

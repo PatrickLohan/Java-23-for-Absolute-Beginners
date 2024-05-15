@@ -26,8 +26,53 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.ArrayList;
+import java.util.concurrent.*;
+import java.util.random.RandomGenerator;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.apress.bgn.five.VirtualThreadsExecutorDemo.log;
+
 /**
  * Created by iuliana.cosmina on 05/05/2024
- * @version TODO
- */public class VirtualThreadsExecutorDemo {
+ */
+public class VirtualThreadsExecutorDemo {
+    public static final Logger log = LoggerFactory.getLogger(VirtualThreadsExecutorDemo.class);
+    public static RandomGenerator RND = RandomGenerator.of("SecureRandom");
+
+    public static void main() {
+        try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
+            var tasks = new ArrayList<MyTask>();
+            for (int i = 0; i < 1_000; i++) {
+                tasks.add(new MyTask());
+            }
+
+            long time = System.currentTimeMillis();
+            var futures = executor.invokeAll(tasks);
+
+            long sum = 0;
+            for (Future<Integer> future : futures) {
+                sum += future.get();
+            }
+
+            time = System.currentTimeMillis() - time;
+            log.info(STR.">> Virtual threads: sum = \{sum}; time = \{time} ms");
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException("Failed to execute tasks", e);
+        }
+    }
 }
+
+class MyTask implements Callable<Integer> {
+
+    @Override
+    public Integer call() {
+        var pause = VirtualThreadsExecutorDemo.RND.nextInt(0, 1000);
+        log.info(STR."\{Thread.currentThread()} produces \{pause}");
+        return pause;
+    }
+}
+

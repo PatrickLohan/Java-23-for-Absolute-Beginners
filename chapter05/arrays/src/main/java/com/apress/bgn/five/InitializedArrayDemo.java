@@ -26,8 +26,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.Arrays;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class InitializedArrayDemo {
+ */
+public class InitializedArrayDemo {
+
+    int[] array = new int[2];
+
+    public static void main() {
+        var ad = new InitializedArrayDemo();
+        if (ad.array == null) {
+            System.out.println("Array unusable. Nothing to do.");
+            return;
+        }
+        System.out.println(Arrays.toString(ad.array));
+    }
 }

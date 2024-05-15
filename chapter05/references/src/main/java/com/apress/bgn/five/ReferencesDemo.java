@@ -27,13 +27,24 @@ SOFTWARE.
 */
 package com.apress.bgn.five;
 
+import com.apress.bgn.four.classes.Gender;
+import com.apress.bgn.four.hierarchy.*;
+
 /**
  * Created by iuliana.cosmina  on 12/02/2024
- *
- * @version TODO
  */
-public class ReferencesMain {
-    public static void main(String... args) {
+public class ReferencesDemo {
+    public static void main() {
+        // Listing 5-14
+        /*Performer performer = new Performer("John", 47, 1.91f, Gender.MALE);
+        Human human = new Performer("Jack", 40, 1.91f, Gender.MALE);
+        Actor actor = new Performer("Jean", 40, 1.61f, Gender.UNSPECIFIED);
+        Musician musician = new Performer("Jodie", 40, 1.81f, Gender.FEMALE);*/
 
+        // Listing 5-15
+        Performer john = new Performer("John", 47, 1.91f, Gender.MALE);
+        Human human = john;
+        Actor actor = john;
+        Musician musician = john;
     }
 }

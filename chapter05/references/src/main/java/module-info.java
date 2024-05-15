@@ -25,5 +25,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-module $MODULE_NAME$ {
+module chapter.five.references {
+    requires chapter.four;
+    requires org.json;
 }

@@ -27,11 +27,22 @@ SOFTWARE.
 */
 package com.apress.bgn.five;
 
+import java.util.Arrays;
+
 /**
  * Created by iuliana.cosmina  on 12/02/2024
  */
-public class ArrayMain {
-    public static void main(String... args) {
+public class ArrayDemo {
+    int[] array;
 
+    public static void main() {
+        int[] array = new int[2];
+        array[5] =7;
+        var ad = new ArrayDemo();
+  /*      if (ad.array == null) {
+            System.out.println("Array unusable. Nothing to do.");
+            return;
+        }*/
+        System.out.println("array was initialized with " + Arrays.toString(ad.array));
     }
 }

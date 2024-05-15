@@ -26,8 +26,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class IntContainer {
+ */
+public class IntContainer {
+    private int value;
+    public IntContainer(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+    public void setValue(int value) {
+        this.value = value;
+    }
 }

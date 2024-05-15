@@ -26,8 +26,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
 /**
  * Created by iuliana.cosmina on 30/04/2024
- * @version TODO
- */public class MultipleUserThreadsJava21Demo {
+ */
+public class MultipleUserThreadsJava21Demo {
+    public static void main() {
+        for (int i = 0; i < 10; ++i) {
+            var rdt = new RandomDurationRunnable();
+            Thread.ofPlatform().name(STR."rdt \{i}").start(rdt);
+        }
+    }
 }

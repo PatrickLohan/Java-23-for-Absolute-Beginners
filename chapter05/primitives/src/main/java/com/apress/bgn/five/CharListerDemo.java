@@ -26,8 +26,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.stream.IntStream;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class CharListerDemo {
+ */
+public class CharListerDemo {
+
+    public static void main(String... args) {
+        // using 'for' statement
+      /*  for (int i = 0; i < 65536; ++i ) {
+            char c = (char) i;
+            System.out.println("c[" + i + "]=" + c);
+        }*/
+
+
+        // using streams
+        IntStream.range(0, 65536)
+                .forEach(i -> System.out.println("c[" + i + "]=" + (char) i));
+    }
 }

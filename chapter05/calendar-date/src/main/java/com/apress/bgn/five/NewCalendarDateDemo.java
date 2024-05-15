@@ -26,8 +26,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class NewCalendarDateDemo {
+ */
+public class NewCalendarDateDemo {
+    public static void main() {
+        var currentTime = LocalDateTime.now();
+        System.out.println(STR."Current DateTime: \{currentTime}");
+        LocalDate today = currentTime.toLocalDate();
+        System.out.println(STR."Today: \{today}");
+
+        var johnBd = LocalDate.of(1977, Month.OCTOBER, 16);
+        System.out.println(STR."John’s Birthday: \{johnBd}");
+
+        int day = johnBd.getDayOfMonth();
+        System.out.println(STR."Day: \{day}, \{johnBd.getDayOfWeek()}");
+        int month = johnBd.getMonthValue();
+
+        System.out.println(STR."Month: \{month}, \{johnBd.getMonth()}");
+        int year = johnBd.getYear();
+        System.out.println(STR."Year: \{year}");
+    }
 }

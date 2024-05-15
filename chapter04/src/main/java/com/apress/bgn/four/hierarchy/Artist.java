@@ -26,8 +26,52 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.four.hierarchy;
+
+import com.apress.bgn.four.classes.Gender;
+
+import java.util.Date;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class Artist {
+ */
+public interface Artist {
+    public static final int LIFESPAN = 100;
+
+    String getSchool();
+
+    void setSchool(String school);
+
+    //boolean isCreative();
+    default boolean isCreative() {
+        explain();
+        return true;
+    }
+
+    private void explain() { // TODO make this line bold
+        log();
+        System.out.println("A true artist has a creative nature.");
+    }
+
+    private static void log() {
+        System.out.println("[LOG] checked creativity on: " + new Date());
+    }
+
+
+    public static String capitalize(final String name) {
+        Character c = name.charAt(0);
+        if (Character.isLowerCase(c)) {
+            Character upperC = Character.toUpperCase(c);
+            name.replace(c, upperC);
+        }
+        return name;
+    }
+
+
+    /**
+     * Yes this is allowed and you can run this. ;)
+     */
+    public static void main() {
+        Artist artist =  new Performer("Myles Kennedy", 54, 1.8F, Gender.MALE);
+        artist.isCreative();
+    }
 }

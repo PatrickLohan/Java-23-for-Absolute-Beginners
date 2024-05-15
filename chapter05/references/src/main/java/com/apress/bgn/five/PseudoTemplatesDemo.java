@@ -26,8 +26,52 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import com.apress.bgn.four.classes.Musician;
+
+import java.text.MessageFormat;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class PseudoTemplatesDemo {
+ */
+public class PseudoTemplatesDemo {
+
+    public static void main() {
+        var bryce = new Musician("Bryce", 38, 1.72f, "High School Rock", "Metal");
+
+        // hard to read
+        // concatenation using +
+        var introduction = "My name is " + bryce.getName() +"  and I am "
+                + bryce.getAge() +" years old.";
+        System.out.println("[using '+'] -> " + introduction);
+
+        // still hard to read
+        // concatenation using String#concat
+        introduction = "My name is ".concat(bryce.getName()).concat("  and I am ")
+                .concat(String.valueOf(bryce.getAge())).concat(" years old.");
+        System.out.println("[using 'concat(..)'] -> " + introduction);
+
+        // verbose, hard to read as well
+        // concatenation using StringBuilder
+        // similar approach to using StringBuffer
+        introduction = new StringBuilder("My name is ").append(bryce.getName()).append("  and I am ")
+                .append(bryce.getAge() ).append(" years old.").toString();
+        System.out.println("[using 'StringBuilder#append(..)' ] -> " + introduction);
+
+        // no of arguments mismatch
+        // concatenation using String.format
+        introduction = String.format("My name is %s and I am %d years old.", bryce.getName() , bryce.getAge());
+        System.out.println("[using `String.format(..)`] -> " + introduction);
+
+        // no of arguments mismatch
+        // concatenation using MessageFormat.format
+        introduction = MessageFormat.format("My name is {0} and I am {1} years old.", bryce.getName() , bryce.getAge());
+        System.out.println("[using 'MessageFormat.format(..)'] -> " + introduction);
+
+        // Java 15
+        // concatenation using String#formatted
+        introduction = introduction.formatted(bryce.getName() , bryce.getAge());
+        System.out.println("[using 'String#formatted(..)']:  -> " + introduction);
+
+    }
 }

@@ -26,8 +26,51 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
 /**
  * Created by iuliana.cosmina on 27/04/2024
- * @version TODO
- */public class SimpleStringDemo {
+ */
+public class SimpleStringDemo {
+    public static void main() {
+        String text1 = null;
+
+        // testing assumption that these two references point to the same object
+        String text21 = "two";
+        String text22 = "two";
+
+        if (text21 == text22) {
+            System.out.println("Equal References");
+        } else {
+            System.out.println("Different References");
+        }
+        if (text21.equals(text22)) {
+            System.out.println("Equal Objects");
+        } else {
+            System.out.println("Different Objects");
+        }
+
+        // testing assumption that text23 points to a different object
+        String text23 = new String ("two");
+
+        if (text22 == text23) {
+            System.out.println("Equal References");
+        } else {
+            System.out.println("Different References");
+        }
+        if (text22.equals(text23)) {
+            System.out.println("Equal Objects");
+        } else {
+            System.out.println("Different Objects");
+        }
+
+        String piece1 = "t";
+        String piece2 = "wo";
+        String text24 = piece1 + piece2;
+
+        char[] twoCh = {'t', 'w', 'o'};
+        String text25 = new String(twoCh);
+
+        String perf = "The singers performing tonight are: \n\t Paolo Nutini \n\t Seth MacFarlane\n\t John Mayer";
+        System.out.println(perf);
+    }
 }

@@ -26,8 +26,76 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.Objects;
+
 /**
  * Created by iuliana.cosmina on 27/04/2024
- * @version TODO
- */public class EqualsDemo {
+ */
+public class EqualsDemo {
+
+    public static void main() {
+        var jim = new Ball(10, "red", "rubber");
+        var jane = new Ball(10, "red", "rubber");
+
+        System.out.println("-- Playing with different balls -- ");
+        System.out.println("Jim and Jane have equal balls? A:" + jim.equals(jane));
+        System.out.println("Jim and Jane have the same ball? A:" + (jim == jane));
+
+        System.out.println("-- Playing with the same ball -- ");
+        var  extra = new Ball(10, "red", "rubber");
+        jim= extra;
+        jane = extra;
+        System.out.println("Jim and Jane have equal balls? A:" + jim.equals(jane));
+        System.out.println("Jim and Jane have the same ball? A:" + (jim == jane));
+    }
+}
+
+class Ball {
+    int diameter;
+    String color;
+    String material;
+
+    public Ball(int diameter, String color, String material) {
+        this.diameter = diameter;
+        this.color = color;
+        this.material = material;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ball ball = (Ball) o;
+        return diameter == ball.diameter && Objects.equals(color, ball.color) && Objects.equals(material, ball.material);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(diameter, color, material);
+    }
+
+    public int getDiameter() {
+        return diameter;
+    }
+
+    public void setDiameter(int diameter) {
+        this.diameter = diameter;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
 }

@@ -26,8 +26,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import com.apress.bgn.four.classes.Gender;
+import com.apress.bgn.four.hierarchy.Performer;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class CollectionsBasicDemo {
+ */
+public class CollectionsBasicDemo {
+    public static void main() {
+        List objList = new ArrayList();
+        objList.add("temp");
+        objList.add(Integer.valueOf(5));
+        objList.add(new Performer("John", 40, 1.91f, Gender.MALE));
+
+        for (Object obj : objList) {
+            if (obj instanceof String) {
+                System.out.println("String object = " + obj.toString());
+            } else if (obj instanceof Integer) {
+                Integer i = (Integer)obj;
+                System.out.println("Integer object = " + i.intValue());
+            } else {
+                Performer p = (Performer) obj;
+                System.out.println("Performer object = " + p.getName());
+            }
+        }
+    }
 }

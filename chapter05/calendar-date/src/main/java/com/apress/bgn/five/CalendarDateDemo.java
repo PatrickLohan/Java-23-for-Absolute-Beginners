@@ -26,8 +26,31 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class CalendarDateDemo {
+ */
+public class CalendarDateDemo {
+    public static void main() {
+        var sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = new GregorianCalendar();
+        Date currentDate = calendar.getTime();
+        System.out.println(STR."Today: \{sdf.format(currentDate)}");
+
+        calendar.set(1977, 9, 16);
+        var johnBirthday = calendar.getTime();
+        System.out.println(STR."John’s Birthday: \{sdf.format(johnBirthday)}");
+
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        System.out.println(STR."Day: \{day}");
+        int month = calendar.get(Calendar.MONTH);
+        System.out.println(STR."Month: \{month}");
+        int year = calendar.get(Calendar.YEAR);
+        System.out.println(STR."Year: \{year}");
+    }
 }

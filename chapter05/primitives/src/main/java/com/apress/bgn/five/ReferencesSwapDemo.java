@@ -26,8 +26,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class ReferencesSwapDemo {
+ */
+public class ReferencesSwapDemo {
+
+    public static void main(String... args) {
+        IntContainer k = new IntContainer(42);
+        IntContainer q = new IntContainer(44);
+        swap(k,q);
+        System.out.println("k = " + k.getValue());
+        System.out.println("q = " + q.getValue());
+    }
+
+    static void swap(IntContainer a, IntContainer b) {
+        IntContainer temp = new IntContainer(a.getValue());
+        a.setValue(b.getValue());
+        b.setValue(temp.getValue());
+    }
 }

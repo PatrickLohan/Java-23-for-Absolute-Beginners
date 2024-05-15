@@ -26,8 +26,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import static java.lang.Thread.currentThread;
+import static java.lang.Thread.sleep;
+
 /**
  * Created by iuliana.cosmina on 30/04/2024
- * @version TODO
- */public class LambdaThreadsDemo {
+ */
+public class LambdaThreadsDemo {
+    public static void main() {
+        for (int i = 0; i < 10; ++i) {
+            new Thread(
+                    //Runnable implemented on the spot
+                    () -> {
+                        System.out.println(STR."\{currentThread().getName()} started...");
+                        for (int j = 0; j < 10; ++j) {
+                            try {
+                                sleep(j * 10);
+                            } catch (InterruptedException _) { }
+                        }
+                        System.out.println(STR."\{currentThread().getName()} ended.");
+                    }).start();
+        }
+    }
 }

@@ -30,6 +30,7 @@ package com.apress.bgn.four.hierarchy;
 import com.apress.bgn.four.classes.Gender;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by iuliana.cosmina on 08/04/2024
@@ -43,6 +44,29 @@ public class Performer extends Human implements Musician, Actor {
 
     public Performer(String name, int age, float height, Gender gender) {
         super(name, age, height, gender);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        //if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || !(o instanceof Performer)) return false;
+        //Performer other = (Performer) o;
+        return (o instanceof Performer other)
+                && Objects.equals(school, other.school)
+                && Objects.equals(genre, other.genre)
+                && Objects.equals(songs, other.songs)
+                && Objects.equals(films, other.films);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(school, genre, songs, films);
+    }
+
+    @Override
+    public String toString() {
+        return STR."Performer{name='\{name}\{'\''}, age=\{age}, height=\{height}, gender=\{super.getGender()}\{'}'}";
     }
 
     public String getCapitalizedName() {
@@ -95,35 +119,3 @@ public class Performer extends Human implements Musician, Actor {
     }
 }
 
-interface Artist {
-    public static final int LIFESPAN = 100;
-    String getSchool();
-    void setSchool(String school);
-    //boolean isCreative();
-    default boolean isCreative(){
-        return true;
-    }
-
-
-    public static String capitalize(final String name){
-        Character c = name.charAt(0);
-        if(Character.isLowerCase(c)) {
-            Character upperC = Character.toUpperCase(c);
-            name.replace(c, upperC);
-        }
-        return name;
-    }
-}
-
-interface Musician extends Artist {
-    List<String> getSongs();
-    void setSongs(List<String> songs);
-    String getGenre();
-    void setGenre(String genre);
-}
-
-interface Actor extends Artist {
-    List<String> getFilms();
-    void setFilms(List<String> films);
-    void addFilm(String filmName);
-}

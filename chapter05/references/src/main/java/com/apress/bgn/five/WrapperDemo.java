@@ -26,8 +26,45 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class WrapperDemo {
+ */
+public class WrapperDemo {
+    public static void main() {
+        // upper interval boundary for int
+        Integer max = Integer.MAX_VALUE;
+        System.out.println(max);
+
+        //autoboxing Integer -> int
+        int pmax = max;
+
+        //autoboxing int -> Integer
+        Integer io = 10;
+
+        //creating primitive utility method
+        //exception is thrown, if string is not a number
+        int i1 = Integer.parseInt("11");
+
+        //exception is thrown, if string is not a number
+        Integer i3 = Integer.valueOf("12");
+
+        //convert int into to String
+        String s0 = Integer.toString(13);
+
+        //convert int to float
+        float f0 = Integer.valueOf(14).floatValue();
+
+        //creating string with binary representation of number 9 (1001)
+        String s1 = Integer.toBinaryString(9);
+
+        //introduced in Java 1.8
+        Integer i4 = Integer.parseUnsignedInt("+15");
+
+        //method to add to integers
+        int sum = Integer.sum(2, 3);
+
+        //method to get the bigger value
+        int maximum = Integer.max(2, 7);
+    }
 }

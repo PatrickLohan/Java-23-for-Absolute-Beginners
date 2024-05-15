@@ -14,6 +14,14 @@
     <description>Contains Reference Types examples for Chapter 5.</description>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20240303</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -25,7 +33,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                com.apress.bgn.five.ReferencesMain
+                                com.apress.bgn.five.ReferencesDemo
                             </mainClass>
                         </manifest>
                     </archive>

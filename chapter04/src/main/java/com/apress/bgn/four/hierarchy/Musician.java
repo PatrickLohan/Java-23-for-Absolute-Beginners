@@ -26,8 +26,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.four.hierarchy;
+
+import java.util.List;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class Musician {
+ */
+public interface Musician extends Artist {
+    List<String> getSongs();
+
+    void setSongs(List<String> songs);
+
+    String getGenre();
+
+    void setGenre(String genre);
 }

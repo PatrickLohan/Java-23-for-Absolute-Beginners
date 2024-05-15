@@ -26,8 +26,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class PrintDateDemo {
+ */
+public class PrintDateDemo {
+    public static void main() {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            Date johnBirthday = sdf.parse("16-10-1977");
+            System.out.println(STR."John’s Birthday: \{sdf.format(johnBirthday)}");
+
+            //day of the month
+            int day = johnBirthday.getDate();
+            System.out.println(STR."Day: \{day}");
+
+            int month = johnBirthday.getMonth() + 1;
+            System.out.println(STR."Month: \{month}");
+
+            int year = johnBirthday.getYear();
+            System.out.println(STR."Year: \{year}");
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -26,8 +26,75 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import com.apress.bgn.four.classes.Gender;
+import com.apress.bgn.four.hierarchy.Musician;
+import com.apress.bgn.four.hierarchy.Performer;
+
+import java.util.List;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class BadReferencesDemo {
+ */
+public class BadReferencesDemo {
+
+    public static void main() {
+        // Listing 5-16 , remove comment to trigger compile error
+        /*Performer performer = new Performer("John", 47, 1.91f, Gender.MALE);
+        Human human = performer;
+        Actor actor = performer;
+        Musician musician = performer;
+        //these will not compile!!!
+        performer = musician;
+        //or
+        performer = human;
+        //or
+        performer = actor;*/
+
+
+        // Listing 5-17 , remove comment and run to trigger runtime error
+        Musician fiddler = new Fiddler(true);
+        Performer performer = (Performer) fiddler;
+        System.out.println("Learned the skill at: " + performer.getSchool());
+        System.out.println("Appeared in movies: " + performer.getFilms());
+    }
+
+}
+
+class Fiddler implements Musician {
+    private boolean ownsFiddle = false;
+
+    public Fiddler(boolean ownsFiddle) {
+        this.ownsFiddle = ownsFiddle;
+    }
+
+    @Override
+    public String getSchool() {
+        return "Irish Conservatory";
+    }
+
+    @Override
+    public void setSchool(String school) {
+
+    }
+
+    @Override
+    public List<String> getSongs() {
+        return null;
+    }
+
+    @Override
+    public void setSongs(List<String> songs) {
+
+    }
+
+    @Override
+    public String getGenre() {
+        return null;
+    }
+
+    @Override
+    public void setGenre(String genre) {
+
+    }
 }

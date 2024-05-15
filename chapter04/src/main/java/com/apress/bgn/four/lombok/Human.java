@@ -35,16 +35,13 @@ import lombok.*;
  */
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @ToString
 @EqualsAndHashCode
 public class Human {
     @Getter @Setter
-    @NonNull
     private String name;
 
     @Getter @Setter
-    @NonNull
     private int age;
 
     @Getter @Setter

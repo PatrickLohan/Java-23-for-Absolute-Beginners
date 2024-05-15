@@ -26,8 +26,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by iuliana.cosmina on 29/04/2024
- * @version TODO
- */public class MapDemo {
+ */
+public class MapDemo {
+    public static void main() {
+        Map<Ball, Integer> ballMap = new HashMap<>();
+        Ball redBall = new Ball(2, "RED", "rubber");
+
+        ballMap.put( redBall, 5);
+        ballMap.put(new Ball(4, "BLUE", "cotton"), 7);
+
+        //ballMap.put( redBall, 3); // this overrides entry <redBall, 5>
+
+        // pre-java 8
+        if(! ballMap.containsKey(redBall)) {
+            ballMap.put(redBall, 3);
+        }
+
+        // after Java 8
+        ballMap.putIfAbsent(redBall, 3);
+
+        for (Map.Entry<Ball, Integer> entry : ballMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
 }

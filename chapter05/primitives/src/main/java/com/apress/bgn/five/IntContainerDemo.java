@@ -30,7 +30,7 @@ package com.apress.bgn.five;
 /**
  * Created by iuliana.cosmina on 21/04/2024
  */
-public class ReferencesDemo {
+public class IntContainerDemo {
 
     public static void main(String... args) {
         IntContainer k = new IntContainer(42);

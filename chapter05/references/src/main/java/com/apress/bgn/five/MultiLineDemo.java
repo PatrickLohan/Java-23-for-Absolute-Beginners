@@ -26,8 +26,77 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class MultiLineDemo {
+ */
+public class MultiLineDemo {
+    public static void main() {
+        // this statement extracts the newline character specific to the
+        // operating system
+        String newLineCh = System.getProperty("line.separator");
+
+        // method 1: simple concatenation using the '+' operator
+        String multilineStr = "line one of the text block" +
+                newLineCh +
+                "line two of the text block" +
+                newLineCh +
+                "last line of the text block" ;
+
+        // or method 2 using `String#concat(..)` method
+        multilineStr = "line one of the text block"
+                .concat(newLineCh)
+                .concat("line two of the text block")
+                .concat(newLineCh)
+                .concat("last line of the text block") ;
+
+        // or method 3 using `String.join` utility method
+        multilineStr = String.join("line one of the text block" ,
+                newLineCh ,
+                "line two of the text block" ,
+                newLineCh ,
+                "last line of the text block");
+
+        // or method 4 using a StringBuffer instance
+        multilineStr = new StringBuffer("line one of the text block")
+                .append(newLineCh)
+                .append("line two of the text block")
+                .append(newLineCh)
+                .append("last line of the text block").toString();
+
+        // or method 5 using a StringBuilder instance
+        multilineStr = new StringBuilder("line one of the text block")
+                .append(newLineCh)
+                .append("line two of the text block")
+                .append(newLineCh)
+                .append("last line of the text block").toString();
+
+        // or method 5 using a StringWriter instance
+        StringWriter stringWriter = new StringWriter();
+        stringWriter.write("line one of the text block");
+        stringWriter.write(newLineCh);
+        stringWriter.write("line two of the text block");
+        stringWriter.write(newLineCh);
+        stringWriter.write("last line of the text block");
+        multilineStr = stringWriter.toString();
+
+        // or method 6 using a StringWriter and PrintWriter instance
+        stringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(stringWriter);
+        printWriter .println("line one of the text block");
+        printWriter.println("line two of the text block");
+        printWriter.println("last line of the text block");
+        multilineStr = stringWriter.toString();
+
+        System.out.println(multilineStr);
+
+         multilineStr = """
+            line one of the text block
+            line two of the text block
+            last line of the text block
+         """;
+    }
 }

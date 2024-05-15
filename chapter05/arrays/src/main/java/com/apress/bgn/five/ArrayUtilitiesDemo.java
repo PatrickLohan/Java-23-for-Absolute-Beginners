@@ -26,8 +26,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.Arrays;
+
 /**
  * Created by iuliana.cosmina on 27/04/2024
- * @version TODO
- */public class ArrayUtilitiesDemo {
+ */
+public class ArrayUtilitiesDemo {
+    public static void main(String... args) {
+
+        int[] array =  {4, 2};
+        System.out.println(Arrays.toString(array));
+        // or
+        Arrays.stream(array).forEach(ai -> System.out.println(ai));
+        // or using a method reference
+        Arrays.stream(array).forEach(System.out::println);
+
+        Arrays.sort(array);
+
+        array = new int[]{4, 2, 1, 5, 7};
+        int foundAt = Arrays.binarySearch(array, 5);
+        System.out.println("Key found at: " + foundAt);
+    }
 }

@@ -3,11 +3,11 @@
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%-5level %logger{5} - %msg%n</pattern>
+            <pattern>%-5level [%.-10t] %logger{5} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <logger name="com.apress.bgn.nine" level="info"/>
+    <logger name="com.apress.bgn.five" level="info"/>
 
     <root level="info">
         <appender-ref ref="console" />

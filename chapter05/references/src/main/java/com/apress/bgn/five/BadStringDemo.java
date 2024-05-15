@@ -26,8 +26,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
 /**
  * Created by iuliana.cosmina on 28/04/2024
- * @version TODO
- */public class BadStringDemo {
+ */
+public class BadStringDemo {
+    public static void main() {
+    /*  String text332 = "Special " character" ;
+        String text331 = "Special \" character" ;
+
+        String text341 = "Special \ character" ;
+        String text342= "Special \\ character" ;
+
+        String text351 = "Special \a character" ;
+        String text352 = "Special \\a character" ;
+
+
+        String text361 = """Wrong way to use this""";
+        String text362 = """Another wong way
+                to use this""";*/
+
+        System.out.println(" Example using \\.");
+    }
 }

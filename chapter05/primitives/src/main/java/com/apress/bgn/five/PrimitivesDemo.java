@@ -26,8 +26,42 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.Date;
+
 /**
  * Created by iuliana.cosmina on 21/04/2024
- * @version TODO
- */public class PrimitivesDemo {
+ */
+public class PrimitivesDemo {
+
+    public static void main(String... args) {
+        var i =5;
+        var j =7;
+        var d = new Date();
+        var result = add(i,j);
+        System.out.println(result);
+        d =null;
+
+        // remove comment to trigger compile error for section ' The `boolean` Type'
+       /* boolean f = false;
+        int fi = (int) f;*/
+
+        // remove comment to see precision loss when converting byte to short in section 'Java Integer Primitive Types'
+        /*byte bv = 23;
+        short sbv = bv;
+        System.out.println("byte to short: " +   sbv);*/
+
+        // remove comment to see precision loss when converting long to float in section 'Java Real Primitive Types'
+        /*float maxLongF = Long.MAX_VALUE;
+        System.out.println("max long= " + Long.MAX_VALUE);
+        System.out.println("float max long= " + maxLongF);*/
+    }
+
+    static int add(int a, int b) {
+        var mess = new String("performing add ... ");
+        return a + b;
+    }
 }
+
+
+

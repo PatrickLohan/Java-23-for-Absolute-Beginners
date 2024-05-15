@@ -27,11 +27,41 @@ SOFTWARE.
 */
 package com.apress.bgn.six;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import static java.lang.System.out;
 /**
- * Created by iuliana.cosmina  on 12/02/2024
+ * Created by iuliana.cosmina on 15/05/2024
  */
-public class Main {
-    public static void main(String... args) {
+public class ComplexConditionsDemo {
+    static List<String> terms = new ArrayList<>() {{
+        add("Rose");
+        add(null);
+        add("River");
+        add("Clara");
+        add("Vastra");
+        add("Psi");
+        add("Cas");
+        add(null);
+        add("Nardhole");
+        add("Strax");
+    }};
 
+    void main(){
+        for (int i = 0; i < 20; ++i) {
+            int rnd = getRandomIndex(terms.size());
+            if (rnd == 0 || rnd == 1 || rnd <= 3) {
+               out.println(STR."\{rnd}: this works...");
+            }
+            if (rnd > 3 && rnd <=6 || rnd < 3 && rnd > 0) {
+                out.println(STR."\{rnd}: this works too...");
+            }
+        }
+    }
+
+    private static int getRandomIndex(int listSize) {
+        Random r = new Random();
+        return r.nextInt(listSize);
     }
 }

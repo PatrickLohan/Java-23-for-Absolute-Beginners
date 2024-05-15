@@ -25,7 +25,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                com.apress.bgn.five.PrimitivesMain
+                                com.apress.bgn.five.PrimitivesDemo
                             </mainClass>
                         </manifest>
                     </archive>

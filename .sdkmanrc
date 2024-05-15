@@ -1,4 +1,4 @@
 # Enable auto-env through the sdkman_auto_env config
 # Add key=value pairs of SDKs to use below
-java=jdk-22.jdk
-maven=4.0.0-alpha-12
+java=23.ea.18-open
+maven=4.0.0-alpha-13

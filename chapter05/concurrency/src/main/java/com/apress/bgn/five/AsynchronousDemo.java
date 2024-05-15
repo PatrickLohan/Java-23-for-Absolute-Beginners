@@ -26,8 +26,54 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.five;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
 /**
  * Created by iuliana.cosmina on 05/05/2024
- * @version TODO
- */public class AsynchronousDemo {
+ */
+public class AsynchronousDemo {
+
+    public static void main() throws ExecutionException, InterruptedException {
+        CompletableFuture.runAsync(
+                    () -> System.out.println(STR."\{Thread.currentThread().getName()} async run (1)") // Runnable as lambda
+                ).get(); // Block and wait for the future to complete
+
+        var result1 = CompletableFuture.supplyAsync(() ->  STR."\{Thread.currentThread().getName()} async run (2)" // Supplier<String> as lambda
+            ).get(); // Block and wait for the future to complete
+        System.out.println(result1);
+
+        var result2 = CompletableFuture.supplyAsync(() ->  STR."\{Thread.currentThread().getName()} async run (3)" // Supplier<String> as lambda
+            ).thenApply(String::toUpperCase) // apply transformation to result
+                .get(); // Block and wait for the future to complete
+        System.out.println(result2);
+
+        CompletableFuture.supplyAsync(() ->  STR."\{Thread.currentThread().getName()} async run (4)" // Supplier<String> as lambda
+            ).thenAccept(System.out::println); //  Consumer<T> processes the result when received
+
+        var result3 = CompletableFuture.supplyAsync(() ->  STR."\{Thread.currentThread().getName()} async run (5)" // Supplier<String> as lambda
+                ).thenApplyAsync(s -> STR."\{Thread.currentThread().getName()} thenApplyAsync : \{s}") // apply async transformation to result
+                .get(); // Block and wait for the future to complete
+        System.out.println(result3);
+
+
+        var result4 = CompletableFuture.supplyAsync(() ->
+                {
+                    if (System.currentTimeMillis()%2 ==0) {
+                        throw new IllegalStateException("No can do!");
+                    }
+                    return STR."\{Thread.currentThread().getName()} async run (6)";
+                }
+        ).exceptionally(ex -> {
+                    System.err.println(ex.getMessage());
+                    return "There be dragons!";
+                })
+                .get(); // Block and wait for the future to complete
+        System.out.println(result4);
+
+        try {
+            Thread.sleep(2000); // making sure 'main' thread finishes execution last
+        } catch (InterruptedException _) {}
+    }
 }

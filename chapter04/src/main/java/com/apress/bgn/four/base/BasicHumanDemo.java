@@ -27,6 +27,8 @@ SOFTWARE.
 */
 package com.apress.bgn.four.base;
 
+import com.apress.bgn.four.classes.Gender;
+
 /**
  * Created by iuliana.cosmina on 20/03/2024
  */
@@ -54,5 +56,10 @@ public class BasicHumanDemo {
         System.out.println("Alex’s lifespan = " + alex.LIFESPAN);  // prints 100
         System.out.println("human’s lifespan = " + human.LIFESPAN);  // prints 100
         System.out.println("Human lifespan = " + Human.LIFESPAN);  // prints 100
+
+        for (Gender value : Gender.values()){
+            System.out.println(value.name() + ": " + value.getClass());
+            System.out.println("\tcomment : " + value.comment());
+        }
     }
 }
