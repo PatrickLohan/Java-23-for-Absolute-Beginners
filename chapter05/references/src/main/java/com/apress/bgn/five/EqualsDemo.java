@@ -34,7 +34,7 @@ import java.util.Objects;
  */
 public class EqualsDemo {
 
-    public static void main() {
+    void main() {
         var jim = new Ball(10, "red", "rubber");
         var jane = new Ball(10, "red", "rubber");
 

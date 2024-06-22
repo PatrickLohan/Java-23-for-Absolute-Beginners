@@ -25,15 +25,21 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.five;
+package com.apress.bgn.seven.whileloop;
+
+import static java.lang.System.out;
 
 /**
- * Created by iuliana.cosmina  on 12/02/2024
- *
- * @version TODO
+ * Created by iuliana.cosmina on 22/06/2024
  */
-public class CollectionsMain {
-    public static void main(String[] args) {
+public class WhileLoopDemo {
 
+    void main(){
+        int[] arr = new int[0]; //{5, 1, 4, 2, 3};
+        int i = 0;
+        while(i < arr.length) {
+            out.println(STR."arr[\{i}] = \{arr[i]}");
+            ++i;
+        }
     }
 }

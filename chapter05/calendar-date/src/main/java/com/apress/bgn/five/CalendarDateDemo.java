@@ -36,7 +36,7 @@ import java.util.GregorianCalendar;
  * Created by iuliana.cosmina on 28/04/2024
  */
 public class CalendarDateDemo {
-    public static void main() {
+    void main() {
         var sdf = new SimpleDateFormat("dd-MM-yyyy");
         Calendar calendar = new GregorianCalendar();
         Date currentDate = calendar.getTime();

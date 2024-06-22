@@ -44,7 +44,7 @@ import static java.lang.System.out;
  */
 public class StructuredConcurrencyDemoTwo {
 
-    public static void main() {
+    void main() {
         var d = new StructuredConcurrencyDemoTwo();
         List<Subtask<Integer>> subtasks = new ArrayList<>();
         var start = Instant.now();

@@ -37,7 +37,7 @@ import static java.lang.System.out;
  * Created by iuliana.cosmina on 29/04/2024
  */
 public class GenericListDemo {
-    public static void main() {
+    void main() {
         List<String> list = new ArrayList<>();
         list.add("one");
         list.add("two");

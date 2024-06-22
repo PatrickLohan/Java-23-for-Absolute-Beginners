@@ -31,7 +31,7 @@ package com.apress.bgn.five;
  * Created by iuliana.cosmina on 30/04/2024
  */
 public class MultipleUserThreadsJava21Demo {
-    public static void main() {
+    void main() {
         for (int i = 0; i < 10; ++i) {
             var rdt = new RandomDurationRunnable();
             Thread.ofPlatform().name(STR."rdt \{i}").start(rdt);

@@ -35,7 +35,7 @@ import java.util.Date;
  * Created by iuliana.cosmina  on 12/02/2024
  */
 public class DateDemo {
-    public static void main() {
+    void main() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Date currentDate = new Date();
         System.out.println(STR."Today: \{sdf.format(currentDate)}");

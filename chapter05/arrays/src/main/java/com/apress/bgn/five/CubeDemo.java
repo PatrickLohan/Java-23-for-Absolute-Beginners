@@ -32,7 +32,7 @@ package com.apress.bgn.five;
  */
 public class CubeDemo {
 
-    public static void main(String... args) {
+    void main() {
         // three-dimensional array with three coordinates
         int[][][] intMatrix3 = new int[2][2][2];
         for (int i = 0; i < intMatrix3.length; ++i) {

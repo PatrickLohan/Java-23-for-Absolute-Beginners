@@ -37,7 +37,7 @@ import java.util.List;
  * Created by iuliana.cosmina on 28/04/2024
  */
 public class CollectionsBasicDemo {
-    public static void main() {
+    void main() {
         List objList = new ArrayList();
         objList.add("temp");
         objList.add(Integer.valueOf(5));

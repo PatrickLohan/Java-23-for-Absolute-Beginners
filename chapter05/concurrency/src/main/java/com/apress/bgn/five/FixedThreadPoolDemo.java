@@ -35,7 +35,7 @@ import java.util.concurrent.Executors;
  * Created by iuliana.cosmina on 30/04/2024
  */
 public class FixedThreadPoolDemo {
-    public static void main() {
+    void main() {
         var rdc = new RandomDurationCallable();
         try (var executor = Executors.newFixedThreadPool(10)) {
             var assignments = new ArrayList<RandomDurationCallable>();

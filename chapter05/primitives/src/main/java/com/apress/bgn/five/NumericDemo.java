@@ -38,7 +38,7 @@ public class NumericDemo {
     private float f;
     private double d;
 
-    public static void main(String... args) {
+    void main() {
         NumericDemo nd = new NumericDemo();
 
         nd.b = 0b1100;

@@ -37,6 +37,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <log4j.version>2.23.1</log4j.version>
+        <mysql.driver.version>8.4.0</mysql.driver.version>
+
         <java.version>23</java.version>
         <maven.compiler.source>23</maven.compiler.source>
         <maven.compiler.target>23</maven.compiler.target>

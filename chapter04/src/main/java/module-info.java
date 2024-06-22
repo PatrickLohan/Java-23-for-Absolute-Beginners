@@ -30,6 +30,8 @@ module chapter.four {
 
     exports com.apress.bgn.four.classes;
     exports com.apress.bgn.four.hierarchy;
+    exports com.apress.bgn.four.sealed.one;
+    exports com.apress.bgn.four.sealed.two;
 
     requires org.apache.commons.lang3;
     requires org.apache.commons.io;

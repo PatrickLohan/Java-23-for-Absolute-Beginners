@@ -35,7 +35,7 @@ import com.apress.bgn.four.hierarchy.Performer;
  */
 public class PerformerArrayDemo {
 
-    public static void main(String... args) {
+    void main() {
         Performer[] array = new Performer[2];
         for (int i = 0; i < array.length; ++i) {
             System.out.println("performer[" + i + "]= " + array[i] );

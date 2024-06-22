@@ -34,7 +34,7 @@ import java.util.Map;
  * Created by iuliana.cosmina on 29/04/2024
  */
 public class MapDemo {
-    public static void main() {
+    void main() {
         Map<Ball, Integer> ballMap = new HashMap<>();
         Ball redBall = new Ball(2, "RED", "rubber");
 

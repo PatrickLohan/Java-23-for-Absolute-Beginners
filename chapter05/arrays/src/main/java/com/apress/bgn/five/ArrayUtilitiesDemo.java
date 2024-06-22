@@ -33,7 +33,7 @@ import java.util.Arrays;
  * Created by iuliana.cosmina on 27/04/2024
  */
 public class ArrayUtilitiesDemo {
-    public static void main(String... args) {
+    void main() {
 
         int[] array =  {4, 2};
         System.out.println(Arrays.toString(array));

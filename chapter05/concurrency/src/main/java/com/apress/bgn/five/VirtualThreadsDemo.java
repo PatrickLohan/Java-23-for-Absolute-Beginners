@@ -31,7 +31,7 @@ package com.apress.bgn.five;
  * Created by iuliana.cosmina on 30/04/2024
  */
 public class VirtualThreadsDemo {
-    public static void main() {
+    void main() {
         for (int i = 0; i < 1000; ++i) {
             var rdt = new RandomDurationRunnable();
             Thread.ofVirtual().name(STR."rdt \{i}").start(rdt);

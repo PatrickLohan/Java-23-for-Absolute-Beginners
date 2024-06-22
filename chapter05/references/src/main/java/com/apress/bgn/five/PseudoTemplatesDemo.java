@@ -36,7 +36,7 @@ import java.text.MessageFormat;
  */
 public class PseudoTemplatesDemo {
 
-    public static void main() {
+    void main() {
         var bryce = new Musician("Bryce", 38, 1.72f, "High School Rock", "Metal");
 
         // hard to read

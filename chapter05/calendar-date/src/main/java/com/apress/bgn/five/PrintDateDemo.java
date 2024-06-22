@@ -35,7 +35,7 @@ import java.util.Date;
  * Created by iuliana.cosmina on 28/04/2024
  */
 public class PrintDateDemo {
-    public static void main() {
+    void main() {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             Date johnBirthday = sdf.parse("16-10-1977");

@@ -40,7 +40,7 @@ import static java.lang.System.out;
  * Created by iuliana.cosmina on 05/05/2024
  */
 public class StructuredConcurrencyDemoOne {
-    public static void main() {
+    void main() {
         var start = Instant.now();
         try (var scope = new ShutdownOnSuccess<Integer>()) {
             Subtask<Integer> task1 = scope.fork(() -> DataGenerator.genInt());

@@ -31,7 +31,7 @@ package com.apress.bgn.five;
  * Created by iuliana.cosmina on 30/04/2024
  */
 public class ListJvmThreads {
-    public static void main() {
+    void main() {
         var threadSet = Thread.getAllStackTraces().keySet();
         var threadArray = threadSet.toArray(new Thread[threadSet.size()]);
         for (int i = 0; i < threadArray.length; ++i) {

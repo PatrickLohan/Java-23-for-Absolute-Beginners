@@ -36,7 +36,7 @@ public class InitializedArrayDemo {
 
     int[] array = new int[2];
 
-    public static void main() {
+    void main() {
         var ad = new InitializedArrayDemo();
         if (ad.array == null) {
             System.out.println("Array unusable. Nothing to do.");

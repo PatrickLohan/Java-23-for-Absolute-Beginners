@@ -46,7 +46,7 @@ class RandomDurationThread extends Thread {
 
 
 public class MultipleUserThreadsDemo {
-    public static void main() {
+    void main() {
         for (int i = 0; i < 10; ++i) {
             new RandomDurationThread().start();
         }

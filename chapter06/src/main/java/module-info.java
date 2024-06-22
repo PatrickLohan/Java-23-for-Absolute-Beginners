@@ -27,4 +27,5 @@ SOFTWARE.
 */
 module chapter.six {
     requires chapter.four;
+    exports com.apress.bgn.six;
 }

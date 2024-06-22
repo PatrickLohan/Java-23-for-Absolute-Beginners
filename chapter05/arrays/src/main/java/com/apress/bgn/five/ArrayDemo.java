@@ -35,7 +35,7 @@ import java.util.Arrays;
 public class ArrayDemo {
     int[] array;
 
-    public static void main() {
+    void main() {
         int[] array = new int[2];
         array[5] =7;
         var ad = new ArrayDemo();

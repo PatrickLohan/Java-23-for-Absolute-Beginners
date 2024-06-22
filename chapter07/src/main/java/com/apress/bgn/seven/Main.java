@@ -31,7 +31,8 @@ package com.apress.bgn.seven;
  * Created by iuliana.cosmina  on 12/02/2024
  */
 public class Main {
-    public static void main(String... args) {
-
+    void main() {
+        String text = "sample";
+        System.out.println(text);
     }
 }

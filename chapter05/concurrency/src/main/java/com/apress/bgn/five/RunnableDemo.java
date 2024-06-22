@@ -45,7 +45,7 @@ class RandomDurationRunnable  implements  Runnable {
 
 
 public class RunnableDemo {
-    public static void main() {
+    void main() {
         for (int i = 0; i < 10; ++i) {
             new Thread(new RandomDurationRunnable()).start();
         }

@@ -36,7 +36,7 @@ import static java.lang.System.out;
  */
 public class SetDemo {
 
-    public static void main() {
+    void main() {
         Set<Ball> ballSet = new HashSet<>();
         ballSet.add(new Ball(2, "RED", "rubber"));
         ballSet.add(new Ball(4, "BLUE", "cotton"));

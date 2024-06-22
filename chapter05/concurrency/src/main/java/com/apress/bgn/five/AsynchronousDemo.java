@@ -35,7 +35,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class AsynchronousDemo {
 
-    public static void main() throws ExecutionException, InterruptedException {
+    void main() throws ExecutionException, InterruptedException {
         CompletableFuture.runAsync(
                     () -> System.out.println(STR."\{Thread.currentThread().getName()} async run (1)") // Runnable as lambda
                 ).get(); // Block and wait for the future to complete

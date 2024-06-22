@@ -46,6 +46,11 @@ public class Performer extends Human implements Musician, Actor {
         super(name, age, height, gender);
     }
 
+    public Performer(String name, int age, float height, Gender gender, List<String> films) {
+        super(name, age, height, gender);
+        this.films = films;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

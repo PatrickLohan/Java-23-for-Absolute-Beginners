@@ -32,7 +32,7 @@ import static java.lang.System.out;
  * Created by iuliana.cosmina on 30/04/2024
  */
 public class NewTheadSyntax21Demo {
-    public static void main() {
+    void main() {
         // Os Thread
         Thread.ofPlatform()
                 .name("Thread-P")

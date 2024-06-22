@@ -35,7 +35,7 @@ import java.time.Month;
  * Created by iuliana.cosmina on 28/04/2024
  */
 public class NewCalendarDateDemo {
-    public static void main() {
+    void main() {
         var currentTime = LocalDateTime.now();
         System.out.println(STR."Current DateTime: \{currentTime}");
         LocalDate today = currentTime.toLocalDate();

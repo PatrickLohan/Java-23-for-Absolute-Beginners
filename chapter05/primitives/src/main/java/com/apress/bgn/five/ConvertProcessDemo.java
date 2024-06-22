@@ -39,7 +39,7 @@ public class ConvertProcessDemo {
         this.done = done;
     }
 
-    public static void main(String... args) {
+    void main() {
         ConvertProcessDemo cp = new ConvertProcessDemo();
         System.out.println("Default value = " + cp.isDone());
 

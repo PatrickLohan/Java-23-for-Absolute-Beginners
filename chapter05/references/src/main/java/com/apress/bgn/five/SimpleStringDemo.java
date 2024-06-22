@@ -31,7 +31,7 @@ package com.apress.bgn.five;
  * Created by iuliana.cosmina on 27/04/2024
  */
 public class SimpleStringDemo {
-    public static void main() {
+    void main() {
         String text1 = null;
 
         // testing assumption that these two references point to the same object

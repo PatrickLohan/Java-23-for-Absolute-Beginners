@@ -43,7 +43,7 @@ public class VirtualThreadsExecutorDemo {
     public static final Logger log = LoggerFactory.getLogger(VirtualThreadsExecutorDemo.class);
     public static RandomGenerator RND = RandomGenerator.of("SecureRandom");
 
-    public static void main() {
+    void main() {
         try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
             var tasks = new ArrayList<MyTask>();
             for (int i = 0; i < 1_000; i++) {

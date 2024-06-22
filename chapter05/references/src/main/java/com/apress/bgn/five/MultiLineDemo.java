@@ -34,7 +34,7 @@ import java.io.StringWriter;
  * Created by iuliana.cosmina on 28/04/2024
  */
 public class MultiLineDemo {
-    public static void main() {
+    void main() {
         // this statement extracts the newline character specific to the
         // operating system
         String newLineCh = System.getProperty("line.separator");

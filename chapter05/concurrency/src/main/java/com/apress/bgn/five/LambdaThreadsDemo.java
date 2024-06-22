@@ -34,7 +34,7 @@ import static java.lang.Thread.sleep;
  * Created by iuliana.cosmina on 30/04/2024
  */
 public class LambdaThreadsDemo {
-    public static void main() {
+    void main() {
         for (int i = 0; i < 10; ++i) {
             new Thread(
                     //Runnable implemented on the spot
