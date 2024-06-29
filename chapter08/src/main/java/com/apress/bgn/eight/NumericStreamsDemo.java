@@ -25,18 +25,37 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
+package com.apress.bgn.eight;
+import java.util.Random;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 import static java.lang.System.out;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 25/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
-        }
+public class NumericStreamsDemo {
+
+    void main(){
+        var intStream0 = IntStream.builder().add(0).add(1).add(2).add(5).build();
+        var intStream1 = IntStream.of(0,1,2,3,4,5);
+
+        var intStream2 = IntStream.range(0, 10);
+        var intStream3 = IntStream.rangeClosed(0, 10);
+
+        Random random = new Random();
+        IntStream intStream4 = random.ints(5);
+
+        IntStream intStream5 = IntStream.of('a','b','c','d');
+        intStream5.forEach(c -> out.println((char) c));
+
+        IntStream charStream = "sample".chars();
+        charStream.forEach(c -> out.println((char) c));
+
+        DoubleStream doubleStream0 = DoubleStream.of(1, 2 , 2.3, 3.4, 4.5, 6);
+
+        DoubleStream doubleStream1 = random.doubles(3);
+
+        DoubleStream doubleStream2 = DoubleStream.iterate(2.5, d -> d = d + 0.2).limit(10);
     }
 }

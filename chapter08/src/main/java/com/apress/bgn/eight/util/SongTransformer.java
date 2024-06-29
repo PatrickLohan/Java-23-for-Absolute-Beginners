@@ -25,13 +25,26 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.eight;
+package com.apress.bgn.eight.util;
 
 /**
- * Created by iuliana.cosmina  on 12/02/2024
+ * Created by iuliana.cosmina on 26/06/2024
  */
-public class Main {
-    public static void main(String... args) {
+public class SongTransformer {
+    public static int processDuration(Song song) {
+        int secs = song.getDuration();
+        return secs/60;
+    }
 
+    public static Song turnDurationToMinutes(Song song) {
+        int secs = song.getDuration();
+        song.setDuration(secs/60);
+        return song;
+    }
+
+    public static Song upcaseTitle(Song song) {
+        String title = song.getTitle();
+        song.setTitle(title.toUpperCase());
+        return song;
     }
 }

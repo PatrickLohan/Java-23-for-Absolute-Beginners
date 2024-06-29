@@ -25,18 +25,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
-import static java.lang.System.out;
+package com.apress.bgn.eight;
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+import static java.lang.System.err;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 23/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
+public class StreamRecyclingDemo {
+    void main(){
+        int[] arr = { 50, 10, 250, 100};
+
+        IntStream intStream = Arrays.stream(arr);
+
+        try {
+            intStream.forEach(System.out::println);
+            intStream.forEach(System.out::println);
+        } catch (IllegalStateException ise) {
+            err.println(STR."Streams cannot be recycled: \{ise.getMessage()}");
+            ise.printStackTrace();
         }
     }
 }

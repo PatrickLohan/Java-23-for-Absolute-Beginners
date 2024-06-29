@@ -26,6 +26,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.seven;
+import static java.lang.System.out;
 
 /**
  * Created by iuliana.cosmina on 16/05/2024
@@ -35,10 +36,10 @@ public class IfElseFlowDemo {
         int a = Integer.parseInt(args[0]);
         if (a % 2 == 0) { // is even
             //Display EVEN
-            System.out.println("EVEN");
+            out.println("EVEN");
         } else {
             //Display ODD
-            System.out.println("ODD");
+            out.println("ODD");
         }
     }
 }

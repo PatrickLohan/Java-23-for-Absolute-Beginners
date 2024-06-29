@@ -25,18 +25,31 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
+package com.apress.bgn.eight;
+import java.util.Arrays;
+
 import static java.lang.System.out;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 23/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
-        }
+public class ArrayStreamDemo {
+
+    void main(){
+        int[] arr = { 50, 10, 250, 100, 23, 45, 33, 55, 67, 83, 90, 92, 94, 74, 200, 40052, 3467, 125};
+
+        Arrays.stream(arr).forEach(
+                i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}")
+        );
+
+        out.println("Creating a stream from a part of the array");
+        Arrays.stream(arr, 3,6).forEach(
+                i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}")
+        );
+
+        out.println("Creating a parallel strem from the array");
+        Arrays.stream(arr).parallel().forEach(
+                i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}")
+        );
     }
 }

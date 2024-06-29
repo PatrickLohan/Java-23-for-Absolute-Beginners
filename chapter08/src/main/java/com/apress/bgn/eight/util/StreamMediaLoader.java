@@ -25,18 +25,49 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
-import static java.lang.System.out;
+package com.apress.bgn.eight.util;
+
+import net.sf.jsefa.Deserializer;
+import net.sf.jsefa.csv.CsvIOFactory;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 23/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
+public class StreamMediaLoader {
+    public static List<Song> loadSongsAsList() {
+        List<Song> songs = new ArrayList<>();
+        Deserializer deserializer = CsvIOFactory.createFactory(Song.class).createDeserializer();
+        String inputFile = "chapter08/src/main/resources/songs.csv";
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
+            deserializer.open(reader);
+            while (deserializer.hasNext()) {
+                Song s = deserializer.next();
+                songs.add(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        } finally {
+            deserializer.close(true);
+        }
+        return songs;
+    }
+
+    public static Stream<Song> loadSongs() {
+        List<Song> songs = loadSongsAsList();
+        if(songs.isEmpty()) {
+            return Stream.empty();
+        } else {
+            return songs.stream();
         }
     }
 }

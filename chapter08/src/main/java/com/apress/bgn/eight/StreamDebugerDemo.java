@@ -25,18 +25,26 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
-import static java.lang.System.out;
+package com.apress.bgn.eight;
+
+import com.apress.bgn.eight.util.SongTransformer;
+import com.apress.bgn.eight.util.StreamMediaLoader;
+
+import java.util.stream.Gatherers;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 29/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
-        }
+public class StreamDebugerDemo {
+    void main(){
+        var songs = StreamMediaLoader.loadSongs();
+        songs
+            .map(SongTransformer::upcaseTitle)
+            .map(SongTransformer::processDuration)
+            .distinct()
+            .sorted()
+                .gather(Gatherers.windowFixed(2))
+            .toList()
+            .forEach(System.out::println);
     }
 }

@@ -25,18 +25,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
+package com.apress.bgn.eight;
+import java.util.List;
+import java.util.function.Consumer;
+
 import static java.lang.System.out;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 23/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
-        }
+public class IntegerStreamDemo {
+    void main() {
+        List<Integer> bigList = List.of(50, 10, 250, 100, 23, 45, 33, 55, 67, 83, 90, 92, 94, 74, 200, 40052, 3467, 125);
+
+        out.println("Collapsed consumer: Lambda expression");
+        bigList.stream().forEach(i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}"));
+
+        out.println("Expanded consumer: anonymous class");
+        bigList.stream().forEach(
+                new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer i) {
+                        out.println(STR."\{Thread.currentThread().getName()}: \{i}");
+                    }
+                });
+
+        out.println("Using a parallel stream");
+        bigList.parallelStream().forEach(i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}"));
     }
 }

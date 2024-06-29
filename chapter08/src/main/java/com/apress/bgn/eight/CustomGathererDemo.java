@@ -25,18 +25,48 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
+package com.apress.bgn.eight;
+
+import com.apress.bgn.eight.util.Song;
+import com.apress.bgn.eight.util.StreamMediaLoader;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.function.BinaryOperator;
+import java.util.function.Supplier;
+import java.util.stream.Gatherer;
+
 import static java.lang.System.out;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 27/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
+public class CustomGathererDemo {
+    void main(){
+        var songs = StreamMediaLoader.loadSongs();
+        var reducedSongs = songs.gather(new DistinctBySinger())
+                .peek(out::println);
+        var songList = reducedSongs.toList();
+        out.println(STR."\{songList.size()} == \{new HashSet<>(songList).size()}");
+    }
+
+    record DistinctBySinger() implements Gatherer<Song, Set<String>, Song> {
+
+        @Override
+        public Supplier<Set<String>> initializer() {
+            return () -> new HashSet<>();
+        }
+
+        @Override
+        public Integrator<Set<String>, Song, Song> integrator() {
+            return Integrator.of((singersList, element, downstream) -> {
+                    if (singersList.add(element.getSinger())) {
+                        downstream.push(element);
+                    }
+                // Return true to continue processing stream elements
+                return true;
+            });
         }
     }
 }
+
+

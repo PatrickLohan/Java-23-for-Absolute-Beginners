@@ -25,18 +25,35 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
+package com.apress.bgn.eight;
+
+import com.apress.bgn.eight.util.MediaLoader;
+import com.apress.bgn.eight.util.Song;
+
+import java.util.List;
 import static java.lang.System.out;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 26/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
+public class NonOptionalDemo {
+
+    void main(){
+        List<Song> songs = MediaLoader.loadSongs();
+        Song song = findFirst(songs, "B.B. King");
+        if(song != null && song.getSinger().equals("The Thrill Is Gone")) {
+            out.println("Good stuff!");
+        } else {
+            out.println("not found!");
         }
+    }
+
+    public static Song findFirst(List<Song> songs, String singer) {
+        for (Song song: songs) {
+            if (singer.equals(song.getSinger())) {
+                return song;
+            }
+        }
+        return null;
     }
 }

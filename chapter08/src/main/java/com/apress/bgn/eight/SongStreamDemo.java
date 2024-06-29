@@ -25,18 +25,37 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
+package com.apress.bgn.eight;
+
+import com.apress.bgn.eight.util.Song;
+import com.apress.bgn.eight.util.StreamMediaLoader;
+
+import java.util.List;
+import java.util.stream.Stream;
+
 import static java.lang.System.out;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 23/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
+public class SongStreamDemo {
+
+    void main(){
+        out.println(" -- Testing 'getAsStream(..)' method with null -- ");
+        getAsStream(null).forEach(out::println);
+
+        out.println(" -- Testing 'getAsStream(..)' method with empty list --");
+        getAsStream(List.of()).forEach(out::println);
+
+        out.println(" -- Testing 'getAsStream(..)' method with a list -- ");
+        getAsStream(StreamMediaLoader.loadSongsAsList()).forEach(out::println);
+    }
+
+    public static Stream<Song> getAsStream(List<Song> songList) {
+        if(songList == null || songList.isEmpty()) {
+            return Stream.empty();
+        } else {
+            return songList.stream();
         }
     }
 }

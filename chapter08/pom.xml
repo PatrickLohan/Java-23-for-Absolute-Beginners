@@ -20,6 +20,12 @@
             <artifactId>chapter04</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/net.sf.jsefa/jsefa -->
+        <dependency>
+            <groupId>net.sf.jsefa</groupId>
+            <artifactId>jsefa</artifactId>
+            <version>1.1.1.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -33,7 +39,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                com.apress.bgn.eight.Main
+                                com.apress.bgn.eight.IntroductoryMain
                             </mainClass>
                         </manifest>
                     </archive>

@@ -26,6 +26,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 package com.apress.bgn.seven;
+import static java.lang.System.out;
 
 /**
  * Created by iuliana.cosmina on 16/05/2024
@@ -34,15 +35,15 @@ public class CompactedSeasonDemo {
     void main(String... args) {
         int a = Integer.parseInt(args[0]);
         if (a == 12 || (a >= 1 && a <= 2)) {
-            System.out.println("Winter");
+            out.println("Winter");
         } else if (a > 2 && a <= 5) {
-            System.out.println("Spring");
+            out.println("Spring");
         } else if (a > 5 && a <= 8) {
-            System.out.println("Summer");
+            out.println("Summer");
         } else if (a > 8 && a <= 11) {
-            System.out.println("Autumn");
+            out.println("Autumn");
         } else {
-            System.out.println("Error");
+            out.println("Error");
         }
     }
 }

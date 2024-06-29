@@ -25,18 +25,40 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.seven;
+package com.apress.bgn.eight;
+
+import com.apress.bgn.eight.util.Song;
+import com.apress.bgn.eight.util.StreamMediaLoader;
+
+import java.util.HashSet;
+import java.util.Objects;
+
 import static java.lang.System.out;
 
 /**
- * Created by iuliana.cosmina on 16/05/2024
+ * Created by iuliana.cosmina on 27/06/2024
  */
-public class IfFlowDemo {
-    void main(String... args){
-        //Read a
-        int a = Integer.parseInt(args[0]);
-        if (a < 0) {
-            out.println("Negative");
+public class NoStreamGathererDemo {
+
+    record DistinctBySinger(Song song) {
+
+        @Override public boolean equals(Object obj) {
+            return obj instanceof DistinctBySinger(Song other)
+                    && Objects.equals(song.getSinger(), other.getSinger());
         }
+
+        @Override public int hashCode() {
+            return song == null ? 0 : song.getSinger().hashCode();
+        }
+    }
+
+    void main(){
+        var songs = StreamMediaLoader.loadSongs();
+        var reducedSongs = songs.map(DistinctBySinger::new)
+                            .distinct()
+                            .map(DistinctBySinger::song)
+                .peek(out::println);
+        var songList = reducedSongs.toList();
+        out.println(STR."\{songList.size()} == \{new HashSet<>(songList).size()}");
     }
 }
