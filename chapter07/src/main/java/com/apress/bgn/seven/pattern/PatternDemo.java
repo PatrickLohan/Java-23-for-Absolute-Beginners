@@ -48,16 +48,14 @@ public class PatternDemo {
             case null -> "no object";
             case Performer p when p.getAge() > 80 -> {
                 out.println("This is a classic. ");
-                yield  STR."Performed in: \{p.getFilms()}";
+                yield  "Performed in: " + p.getFilms();
             }
-            case MiliVanili m -> STR."Creativity \{m.isCreative() ? "found" : "not found"}";
-            case Graphician g -> STR."Preffers\{g.getFavoriteOs()}";
-            case Painter p -> STR."Style: \{p.getStyle()}";
+            case MiliVanili m -> "Creativity " + (m.isCreative() ? "found" : "not found");
+            case Graphician g -> "Preffers " + g.getFavoriteOs();
+            case Painter p -> "Style: " + p.getStyle();
             default -> "something else";
         };
         out.println(res);
-
-
     }
 
     public static Object genRandomInstance(){

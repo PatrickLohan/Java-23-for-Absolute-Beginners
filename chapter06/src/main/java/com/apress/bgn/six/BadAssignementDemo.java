@@ -39,7 +39,7 @@ public class BadAssignementDemo {
         if(testVal = true) {  // !!!!
             out.println("TestVal got initialized incorrectly!");
         } else {
-            out.println(STR."TestVal is false? \{testVal == false}");
+            out.println("TestVal is false? " + (testVal == false));
         }
     }
 }

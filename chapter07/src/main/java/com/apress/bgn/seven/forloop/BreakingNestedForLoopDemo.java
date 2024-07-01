@@ -41,7 +41,7 @@ public class BreakingNestedForLoopDemo {
                     if (i == j && j == k) {
                         break HERE; 
                     }
-                    out.println(STR."(i, j, k) = (\{i},\{j},\{k})");
+                    out.println("(i, j, k) = (" +i + ", " + j + ", " + k +")");
                 }
             }
         }

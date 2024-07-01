@@ -37,8 +37,8 @@ public class LastForLoopDemo {
         int[] arr = {5, 1, 4, 2, 3};
         int i = -1;
         for (; i++ < arr.length -1;) {
-            out.println(STR."arr[\{i}] = \{arr[i]}");
+            out.println("arr[" +i +"] = " + arr[i]);
         }
-        out.println(STR."Loop exited with index: \{i}");
+        out.println("Loop exited with index: " + i);
     }
 }

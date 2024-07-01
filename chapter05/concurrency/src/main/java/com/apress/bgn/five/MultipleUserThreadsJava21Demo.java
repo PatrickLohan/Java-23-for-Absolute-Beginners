@@ -34,7 +34,7 @@ public class MultipleUserThreadsJava21Demo {
     void main() {
         for (int i = 0; i < 10; ++i) {
             var rdt = new RandomDurationRunnable();
-            Thread.ofPlatform().name(STR."rdt \{i}").start(rdt);
+            Thread.ofPlatform().name("rdt " + i).start(rdt);
         }
     }
 }

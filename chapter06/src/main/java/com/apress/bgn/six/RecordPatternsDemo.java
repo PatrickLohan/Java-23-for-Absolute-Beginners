@@ -44,35 +44,35 @@ public class RecordPatternsDemo {
 
         // JEP 440. Pattern Matching for instanceof with Records (Java 19)
         if (john instanceof FullName full) {
-            System.out.println(STR."FullName: \{full}");
+            System.out.println("FullName: " + full);
         }
 
         // extracting the values of the pattern variable using a deconstruction pattern
         if (john instanceof FullName(String firstName, String lastName)) {
-            System.out.println(STR."[Deconstruction] FirstName: \{firstName}");
-            System.out.println(STR."[Deconstruction] LastName: \{lastName}");
+            System.out.println("[Deconstruction] FirstName: " + firstName);
+            System.out.println("[Deconstruction] LastName: " + lastName);
         }
 
         // works with `var` and nested records too
         if (johnRecord instanceof PersonRecord(FullName(var firstName, String lastName), var age)) {
-            System.out.println(STR."[Nested] FirstName: \{firstName}");
-            System.out.println(STR."[Nested] LastName: \{lastName}");
-            System.out.println(STR."[Nested] Age: \{age}");
+            System.out.println("[Nested] FirstName: " + firstName);
+            System.out.println("[Nested] LastName: " + lastName);
+            System.out.println("[Nested] Age: " + age);
         }
 
         // works with generics too
         WrapperBeing<PersonRecord> wrapper = new WrapperBeing<>((PersonRecord) johnRecord, "is mise Iain");
         if (wrapper instanceof WrapperBeing<PersonRecord>(var personRecord, var description)) {
-            System.out.println(STR."[Generics] PersonRecord: \{personRecord}");
-            System.out.println(STR."[Generics] Description: \{description}");
+            System.out.println("[Generics] PersonRecord: " + personRecord);
+            System.out.println("[Generics] Description: " + description);
         }
 
         // Unnamed Pattern - stolen from Go :D
         if (johnRecord instanceof PersonRecord (_, var age)) {
-            System.out.println(STR."[Unnamed Pattern] Age : \{age}");
+            System.out.println("[Unnamed Pattern] Age : " + age);
         }
         if (johnRecord instanceof PersonRecord (FullName (var _, String lastName), var _)) {
-            System.out.println(STR."[Unnamed Variable] LastName: \{lastName}");
+            System.out.println("[Unnamed Variable] LastName: " + lastName);
         }
     }
 }

@@ -39,18 +39,18 @@ public class IntegerStreamDemo {
         List<Integer> bigList = List.of(50, 10, 250, 100, 23, 45, 33, 55, 67, 83, 90, 92, 94, 74, 200, 40052, 3467, 125);
 
         out.println("Collapsed consumer: Lambda expression");
-        bigList.stream().forEach(i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}"));
+        bigList.stream().forEach(i -> out.println("Thread.currentThread().getName()}: " + i));
 
         out.println("Expanded consumer: anonymous class");
         bigList.stream().forEach(
                 new Consumer<Integer>() {
                     @Override
                     public void accept(Integer i) {
-                        out.println(STR."\{Thread.currentThread().getName()}: \{i}");
+                        out.println("Thread.currentThread().getName()}: " + i);
                     }
                 });
 
         out.println("Using a parallel stream");
-        bigList.parallelStream().forEach(i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}"));
+        bigList.parallelStream().forEach(i -> out.println("Thread.currentThread().getName()}: " + i));
     }
 }

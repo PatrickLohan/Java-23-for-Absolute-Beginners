@@ -35,7 +35,7 @@ public class ListJvmThreads {
         var threadSet = Thread.getAllStackTraces().keySet();
         var threadArray = threadSet.toArray(new Thread[threadSet.size()]);
         for (int i = 0; i < threadArray.length; ++i) {
-            System.out.println(STR."thread name: \{threadArray[i].getName()}");
+            System.out.println("thread name: " + threadArray[i].getName());
         }
     }
 }

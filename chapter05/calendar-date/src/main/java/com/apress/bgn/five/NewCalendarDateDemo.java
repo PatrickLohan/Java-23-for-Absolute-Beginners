@@ -37,19 +37,19 @@ import java.time.Month;
 public class NewCalendarDateDemo {
     void main() {
         var currentTime = LocalDateTime.now();
-        System.out.println(STR."Current DateTime: \{currentTime}");
+        System.out.println("Current DateTime: " + currentTime);
         LocalDate today = currentTime.toLocalDate();
-        System.out.println(STR."Today: \{today}");
+        System.out.println("Today: " + today);
 
         var johnBd = LocalDate.of(1977, Month.OCTOBER, 16);
-        System.out.println(STR."John’s Birthday: \{johnBd}");
+        System.out.println("John’s Birthday: " + johnBd);
 
         int day = johnBd.getDayOfMonth();
-        System.out.println(STR."Day: \{day}, \{johnBd.getDayOfWeek()}");
+        System.out.println("Day: " + johnBd.getDayOfWeek());
         int month = johnBd.getMonthValue();
 
-        System.out.println(STR."Month: \{month}, \{johnBd.getMonth()}");
+        System.out.println("Month: " +  johnBd.getMonth());
         int year = johnBd.getYear();
-        System.out.println(STR."Year: \{year}");
+        System.out.println("Year: " + year);
     }
 }

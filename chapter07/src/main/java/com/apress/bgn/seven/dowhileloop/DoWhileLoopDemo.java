@@ -39,7 +39,7 @@ public class DoWhileLoopDemo {
         int i = 0;
         do {
             if(arr.length >=1) { 
-                out.println(STR."arr[\{i}] = \{arr[i]}");
+                out.println("arr[" +i +"] = " + arr[i]);
                 ++i;
             }
         } while (i < arr.length);

@@ -45,66 +45,66 @@ public class GenericListDemo {
 
         out.println("-------- fori ----------"); // imperative
         for (int i = 0; i < list.size(); i++) {
-            out.print(STR."\{list.get(i)} ");
+            out.print("list.get(i)} ");
         }
 
         // JDK 5
         out.println("\n--------- enhanced for ---------"); // imperative
         for (var str : list) {
-            out.print(STR."\{str} ");
+            out.print("str} ");
         }
 
         out.println("\n-------- Iterator ----------"); // imperative using iterator
         for (var it = list.iterator(); it.hasNext();) {
-            out.print(STR."\{it.next()} ");
+            out.print("it.next()} ");
         }
 
         // imperative, can traverse it starting at the end, get access index, can remove and add elements
         out.println("\n-------- ListIterator ----------");
         for (var it = list.listIterator(); it.hasNext();) {
-            out.print(STR."\{it.next()} ");
+            out.print("it.next()} ");
         }
 
         // JDK 1.8
         out.println("\n--------- forEach ---------"); // most simple functional traversal
-        list.forEach(s -> out.print(STR."\{s} "));
+        list.forEach(s -> out.print("s} "));
 
         // functional, converts to stream before traversal;
         // advantage: possibility to stream operations like filter, map, distinct, etc.
         out.println("\n--------- stream().forEach ---------");
-        list.stream().forEach(s -> out.print(STR."\{s} "));
+        list.stream().forEach(s -> out.print("s} "));
 
         // JDK 1.8
         // functional, using a range to generate indexes for the traversal
         out.println("\n-------- range ----------");
         IntStream.range(0, list.size())
-                .forEach(i -> out.print(STR."\{list.get(i)} "));
+                .forEach(i -> out.print("list.get(i)} "));
 
         // functional, using a rangeClosed() to generate indexes for the traversal
         out.println("\n-------- rangeClosed ----------");
         IntStream.rangeClosed(0, list.size()-1)
-                .forEach(i -> out.print(STR."\{list.get(i)} "));
+                .forEach(i -> out.print("list.get(i)} "));
 
         // all new in JDK 21
         var reversed = list.reversed();
-        out.println(STR."[after reversed()]:\{reversed}");
+        out.println("[after reversed()]:" +reversed);
         out.println("---------------------------------------------------");
 
-        out.println(STR."[first element]: \{list.getFirst()}"); // list.get(0)
-        out.println(STR."[last element]: \{list.getLast()}");   // list.get(list.size()-1)
+        out.println("[first element]: " + list.getFirst()); // list.get(0)
+        out.println("[last element]: " + list.getLast());   // list.get(list.size()-1)
         out.println("---------------------------------------------------");
 
-        out.println(STR."[original list]: \{list}");
+        out.println("[original list]: " + list);
         list.addFirst("zero");                        // list.add(0, "zero");
-        out.println(STR."[after addFirst(..)]: \{list}");
+        out.println("[after addFirst(..)]: " + list);
         list.removeFirst();                             // list.remove(0);
-        out.println(STR."[after removeFirst(..)]: \{list}");
+        out.println("[after removeFirst(..)]: " + list);
         out.println("---------------------------------------------------");
 
         list.addLast("four");                       // list.add("four");
-        out.println(STR."[after addLast(..)]: \{list}");
+        out.println("[after addLast(..)]: " + list);
         list.removeLast();                             //list.remove(list.size()-1);
-        out.println(STR."[after removeLast(..)]\{list}");
+        out.println("[after removeLast(..)]" +list);
     }
 
 }

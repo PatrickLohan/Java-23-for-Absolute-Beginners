@@ -25,7 +25,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                com.apress.bgn.nine.JulMain
+                                com.apress.bgn.nine.SortingJulDemo
                             </mainClass>
                         </manifest>
                     </archive>

@@ -49,7 +49,7 @@ public class LongestSongFactoryDemo {
                 //.gather(new LongestSong(360))
                 .gather(LONGEST_SONG(360))
                 .findFirst().orElse(-1);
-        out.println(STR."Longest duration: \{longestDuration} seconds");
+        out.println("Longest duration: " + longestDuration + " seconds");
     }
 
     static Gatherer<Song, List<Integer>, Integer>  LONGEST_SONG(int limit) {

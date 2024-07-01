@@ -35,8 +35,8 @@ import static java.lang.Math.sqrt;
  */
 public class MathSample {
     public static void main(String... args) {
-        System.out.println(STR."PI value =\{PI}");
+        System.out.println("PI value = " + PI);
         double result = sqrt(5.0);
-        System.out.println(STR."SQRT value =\{result}");
+        System.out.println("SQRT value = " +result);
     }
 }

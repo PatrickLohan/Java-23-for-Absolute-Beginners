@@ -36,20 +36,20 @@ public class NewTheadSyntax21Demo {
         // Os Thread
         Thread.ofPlatform()
                 .name("Thread-P")
-                .start(() -> out.println(STR." >> Hi, I am \{Thread.currentThread().getName()} and I am an Platform thread! "));
+                .start(() -> out.println(" >> Hi, I am " + Thread.currentThread().getName() + " and I am an Platform thread! "));
 
         // Virtual thread
-        Thread.startVirtualThread(() -> out.println(STR." >> Hi, I am \{Thread.currentThread()} and I am a Virtual thread!"));
+        Thread.startVirtualThread(() -> out.println(" >> Hi, I am " + Thread.currentThread()+" and I am a Virtual thread!"));
 
         // using VirtualThreadBuilder 'under the bonnet'
         Thread.ofVirtual()
                 .name("Thread-V1")
-                .start(() -> out.println(STR." >> Hi, I am \{Thread.currentThread().getName()} and I am also a Virtual thread! "));
+                .start(() -> out.println(" >> Hi, I am " + Thread.currentThread().getName()+" and I am also a Virtual thread! "));
 
         // or creating it unstarted
         Thread vt = Thread.ofVirtual()
                 .name("Thread-V2")
-                .unstarted(() -> out.println(STR." >> Hi, I am \{Thread.currentThread().getName()} and I am also a Virtual thread! "));
+                .unstarted(() -> out.println(" >> Hi, I am " + Thread.currentThread().getName()+" and I am also a Virtual thread! "));
         vt.start();
 
         try {

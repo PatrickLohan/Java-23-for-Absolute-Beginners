@@ -61,13 +61,13 @@ public class IntroductoryMain {
         for (Song song: resultedSongs) {
             finalList0.add(song.getTitle());
         }
-        out.println(STR."Before Java 8: \{finalList0}");
+        out.println("Before Java 8: " + finalList0);
 
         // doing the same using a stream
         List<String> finalList = songList.stream().filter(s -> s.getDuration() >= 300)
                 .sorted(Comparator.comparing(Song::getDuration).reversed())
                 .map(Song::getTitle)
                 .collect(Collectors.toList());
-        out.println(STR."After Java 8: \{finalList}");
+        out.println("After Java 8: " + finalList);
     }
 }

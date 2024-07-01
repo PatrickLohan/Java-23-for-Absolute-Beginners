@@ -47,8 +47,8 @@ public class RecordPatternDemo {
          switch (obj) {
             case null -> out.println("no record");
             //case FullName fn -> out.println(fn);
-            case FullName(String fn, String ln) -> out.println(STR."FullName record: \{fn} \{ln}");
-            case PersonRecord(FullName(var fn, String _), var age) -> out.println(STR."Person record \{fn} of age \{age}");
+            case FullName(String fn, String ln) -> out.println("FullName record: " + fn +" " + ln);
+            case PersonRecord(FullName(var fn, String _), var age) -> out.println("Person record " + fn +"  of age " + age);
             default -> out.println("something else");
         }
     }

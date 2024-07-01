@@ -27,13 +27,43 @@ SOFTWARE.
 */
 package com.apress.bgn.nine;
 
-/**
- * Created by iuliana.cosmina  on 13/02/2024
- *
- * @version TODO
- */
-public class JulMain {
-    public static void main(String... args) {
+import com.apress.bgn.algs.QuickSort;
 
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.function.Function;
+
+import static com.apress.bgn.nine.SortingLogbackDemo.getInts;
+import static java.lang.System.out;
+
+/**
+ * @author Iuliana Cosmina
+ * since 1.0
+ */
+public class AssertionDemo {
+
+    void main(String... args){
+        int[] arr = getInts(args);
+
+        assert arr.length > 1 : "Not enough data to sort!";
+        //assert arr.length > 1;
+        //assert arr.length > 1 : arr.length;
+        //assert arr.length > 1 : "Not enough data to sort! Number of values: " + arr.length;
+
+        //assert arr.length > 1 : arr = new int[]{1, 2, 3};
+
+      /*  Function<Long, int[]> sleepFiveSecThenInit  =  aLong ->   {
+            try {Thread.sleep(Duration.ofSeconds(aLong).toMillis()); } catch (InterruptedException _) {}
+            return new int[]{1, 2, 3};
+        };
+
+        assert arr.length > 1 : sleepFiveSecThenInit.apply(5L);*/
+
+        var mergeSort = new QuickSort();
+        mergeSort.sort(arr, 0, arr.length - 1);
+
+        final StringBuilder sb2 = new StringBuilder("Sorted: ");
+        Arrays.stream(arr).forEach(i -> sb2.append(i).append(" "));
+        out.println(sb2);
     }
 }

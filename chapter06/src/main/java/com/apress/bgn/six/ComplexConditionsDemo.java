@@ -52,10 +52,10 @@ public class ComplexConditionsDemo {
         for (int i = 0; i < 20; ++i) {
             int rnd = getRandomIndex(terms.size());
             if (rnd == 0 || rnd == 1 || rnd <= 3) {
-               out.println(STR."\{rnd}: this works...");
+               out.println("rnd}: this works...");
             }
             if (rnd > 3 && rnd <=6 || rnd < 3 && rnd > 0) {
-                out.println(STR."\{rnd}: this works too...");
+                out.println("rnd}: this works too...");
             }
         }
     }

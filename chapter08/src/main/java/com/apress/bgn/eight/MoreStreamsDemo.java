@@ -49,38 +49,38 @@ public class MoreStreamsDemo {
         Optional<String> str0 = Optional.of("42");
         Optional<Optional<Integer>> resInt0 = str0.map(toIntOpt);
         Optional<Integer> desiredRes0 = resInt0.orElse(Optional.empty());
-        out.println(STR."finally: \{desiredRes0.get()}");
+        out.println("finally: " + desiredRes0.get());
 
         // flatMap(..) flattening
         Optional<String> str1 = Optional.of("42");
         Optional<Integer> desiredRes1 = str1.flatMap(toIntOpt);
-        out.println(STR."boom: \{desiredRes1.get()}");
+        out.println("boom: " + desiredRes1.get());
 
         out.println("Listing 8-36. Extracting the first element in an ordered stream.");
         // non empty stream, result 'ever'
         List<String> pieces = List.of("some","of", "us", "we’re", "hardly", "ever", "here");
         String first0 = pieces.stream().sorted().findFirst().get();
-        out.println(STR."First from sorted list: \{first0}");
+        out.println("First from sorted list: " + first0);
 
         // empty stream, result 'none'
         pieces = List.of();
         String first1 = pieces.stream().sorted().findFirst().orElse("none");
-        out.println(STR."First from sorted list: \{first1}");
+        out.println("First from sorted list: " + first1);
 
         out.println("Listing 8-37. Counting elements of a stream, after removing duplicate elements.");
         pieces = List.of("as","long", "as", "there", "is", "you", "there", "is", "me");
         long count = pieces.stream().distinct().count();
-        out.println(STR."Elements in the stream: \{count}");
+        out.println("Elements in the stream: " + count);
 
         out.println("Listing 8-38. Computing the maximum and minimum value in a stream.");
         Stream<Integer> ints0 = Stream.of(5,2,7,9,8,1,12,7,2);
         ints0.limit(4).min(Integer::compareTo)
-                .ifPresent(min -> out.println(STR."Min is: \{min}"));
+                .ifPresent(min -> out.println("Min is: " + min));
         // Prints "Min is: 2"
 
         Stream<Integer> ints1 = Stream.of(5,2,7,9,8,1,12,7,2);
         ints1.limit(4).max(Integer::compareTo)
-                .ifPresent(max -> out.println(STR."Max is: \{max}"));
+                .ifPresent(max -> out.println("Max is: " + max));
         // Prints "Max is: 9"
     }
 

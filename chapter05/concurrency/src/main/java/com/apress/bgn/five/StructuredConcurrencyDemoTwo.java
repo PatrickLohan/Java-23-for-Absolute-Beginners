@@ -54,20 +54,20 @@ public class StructuredConcurrencyDemoTwo {
             }
 
             scope.joinUntil(Instant.now().plusSeconds(5));
-            scope.throwIfFailed(t -> new IllegalStateException(STR."Well this sucks!  \{t.getMessage()}"));
+            scope.throwIfFailed(t -> new IllegalStateException("Well this sucks!  " + t.getMessage()));
             // if all subtasks complete successfully
             var result = subtasks.stream()
                     .map(Subtask::get)
                     .collect(Collectors.toList());
-            out.println(STR."All results: \{result}");
+            out.println("All results: " + result);
         } catch (InterruptedException | TimeoutException | IllegalStateException e) {
-            System.err.println(STR."Some tasks have failed. \{e.getMessage()}");
+            System.err.println("Some tasks have failed. " + e.getMessage());
             subtasks.forEach(t -> out.println(
-                    STR."""
-                         task\{subtasks.indexOf(t)}: \{t.state()}, result : \{t.state() == Subtask.State.SUCCESS ? t.get() : "Not Available"}""")
+                        "task "  + subtasks.indexOf(t)  + " " + t.state() + ", result : " + (t.state() == Subtask.State.SUCCESS ? t.get() : "Not Available")
+                    )
             );
         }
-        out.println(STR."Execution time : \{Duration.between(start, Instant.now()).toMillis()}ms");
+        out.println("Execution time : " + Duration.between(start, Instant.now()).toMillis() + " ms");
     }
 
     Integer genValue() throws InterruptedException {

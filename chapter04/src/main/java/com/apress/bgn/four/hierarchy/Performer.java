@@ -71,7 +71,12 @@ public class Performer extends Human implements Musician, Actor {
 
     @Override
     public String toString() {
-        return STR."Performer{name='\{name}\{'\''}, age=\{age}, height=\{height}, gender=\{super.getGender()}\{'}'}";
+        return "Performer{" +
+                "school='" + school + '\'' +
+                ", genre='" + genre + '\'' +
+                ", songs=" + songs +
+                ", films=" + films +
+                '}';
     }
 
     public String getCapitalizedName() {

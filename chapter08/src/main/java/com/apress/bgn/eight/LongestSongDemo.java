@@ -46,7 +46,7 @@ public class LongestSongDemo {
     void main(){
         var songs = StreamMediaLoader.loadSongs();
         var longestDuration = songs.gather(new LongestSong(360)).findFirst().orElse(-1);
-        out.println(STR."Longest duration: \{longestDuration} seconds");
+        out.println("Longest duration: " + longestDuration + " seconds");
     }
 
     record LongestSong(int limit) implements Gatherer<Song, List<Integer>, Integer> {

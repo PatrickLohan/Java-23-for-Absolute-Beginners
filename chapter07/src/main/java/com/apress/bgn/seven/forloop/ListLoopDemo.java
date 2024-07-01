@@ -38,7 +38,7 @@ public class ListLoopDemo {
     void main() {
         var list = List.of(5, 1, 4, 2, 3);
         for (int j = 0; j < list.size(); ++j) {
-            out.println(STR."list[\{j}] = \{list.get(j)}");
+            out.println("list[ " +j +"] = " + list.get(j));
         }
     }
 }

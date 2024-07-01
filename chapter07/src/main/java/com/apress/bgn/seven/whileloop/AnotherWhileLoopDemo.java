@@ -40,7 +40,7 @@ public class AnotherWhileLoopDemo {
             if (i >= arr.length) {
                 break;
             }
-            out.println(STR."arr[\{i}] = \{arr[i]}");
+            out.println("arr[" +i +"] = " + arr[i]);
             ++i;
         }
     }

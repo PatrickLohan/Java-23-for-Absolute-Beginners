@@ -62,6 +62,6 @@ public class SimplifiedSwitchDemo {
             default:
                 out.println("Error");
         }
-        out.println(STR.">> Result: \{season}");
+        out.println(">> Result: " + season);
     }
 }

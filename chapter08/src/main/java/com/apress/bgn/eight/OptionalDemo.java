@@ -75,7 +75,7 @@ public class OptionalDemo {
         Optional<Song> opt3 = songs.stream()
                 .filter(ss -> "Rob Thomas".equals(ss.getSinger()))
                 .findFirst();
-        out.println(STR."Found Song \{opt3.get()}");
+        out.println("Found Song " + opt3.get());
 
         out.println("Testing orElse(..)");
         Optional<Song> opt4 = songs.stream()
@@ -86,11 +86,11 @@ public class OptionalDemo {
         Song defaultSong = new Song();
         defaultSong.setTitle("Untitled");
         Song s = opt4.orElse(defaultSong);
-        out.println(STR."Found: \{s.getTitle()}");
+        out.println("Found: " + s.getTitle());
 
 
         Song fromSupplier = opt4.orElseGet(() -> new Song("None", "Untitled", 0, null));
-        out.println(STR."Found: \{fromSupplier.getTitle()}");
+        out.println("Found: " + fromSupplier.getTitle());
 
         out.println("Testing isMoreThan3MinsAndLessThenTen(..)");
         Song song0 = new Song("Ben Barnes", "You find me", 420, AudioType.FLAC);

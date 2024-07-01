@@ -53,7 +53,7 @@ public class LogicalOperatorsDemo {
         for (int i = 0; i < 20; ++i) {
             int index = getRandomIndex(terms.size());
             String term = terms.get(index);
-            System.out.println(STR."Generated index: \{index}");
+            System.out.println("Generated index: " + index);
            /* if (term != null & term.equals("Rose")) {
                 System.out.println("Rose was found");
             }*/

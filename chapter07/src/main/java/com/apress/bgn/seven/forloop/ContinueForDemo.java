@@ -40,7 +40,7 @@ public class ContinueForDemo {
             if (i % 2 != 0) {
                 continue; 
             }
-            out.println(STR."arr[\{i}] = \{arr[i]}");
+            out.println("arr[" +i +"] = " + arr[i]);
         }
     }
 }

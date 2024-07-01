@@ -40,7 +40,7 @@ public class BreakingForDemo {
                 out.println("Bye bye!");
                 break; 
             }
-            out.println(STR."arr[\{i}] = \{arr[i]}");
+            out.println("arr[" +i +"] = " + arr[i]);
         }
     }
 }

@@ -78,6 +78,6 @@ public class SeasonSwitchDemo {
             default:
                 out.println("Error");
         }
-        out.println(STR.">> Result: \{season}");
+        out.println(">> Result: " + season);
     }
 }

@@ -25,28 +25,52 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.five;
+package com.apress.bgn.algs;
 
-import com.apress.bgn.four.classes.Musician;
-import org.json.JSONObject;
+/**
+ * Old style Javadoc tags.
+ * The <code>InsertionSort</code> class contains a single method that is a concrete implementation of
+ * {@link IntSorter#sort(int[])}.<p>
+ * Instances of this class can be used to sort an <code>int[]</code> array using the insertion-sort algorithm.
+ *
+ * @author Iuliana Cosmina
+ * since 1.0
+ * @see IntSorter
+ */
+public class InsertionSort implements IntSorter {
 
+    /**
+     * This method call is not supported for this type of sorting.
+     *
+     * @param arr int array to be sorted
+     * @param low lower limit of the interval to be sorted
+     * @param high higher limit of the interval to be sorted
+     */
+    @Override
+    public void sort(int[] arr, int low, int high) {
+        throw new UnsupportedOperationException("InsertionSort does not support calling sort(int[], int, int).");
+    }
 
-public class JsonTemplateDemo {
+    /**
+     * Sorts an arr[] in ascending order
+     *
+     * <a href="https://youtu.be/ROalU379l3U" target="_blank"> How it works</a>
+     * @param arr int array to be sorted
+     */
+    @Override
+    public void sort(int[] arr) {
+        int n = arr.length;
+        for (int i=1; i<n; ++i)
+        {
+            int key = arr[i];
+            int j = i-1;
 
-    public static void main() {
-        var bryce = new Musician("Bryce", 38, 1.72f, "High School Rock", "Metal");
-
-        var JSON = StringTemplate.Processor.of(
-                (StringTemplate template) -> new JSONObject(template.interpolate())
-        );
-
-        var introduction = JSON."""
+            while (j>=0 && arr[j] > key)
             {
-                "message1" : "My name is \{bryce.getName()}",
-                "message2" : "and I am \{bryce.getAge()} years old."
+                arr[j+1] = arr[j];
+                j = j-1;
             }
-            """;
-        System.out.println(introduction.getClass());
-        System.out.println(introduction);
+            arr[j+1] = key;
+        }
     }
 }

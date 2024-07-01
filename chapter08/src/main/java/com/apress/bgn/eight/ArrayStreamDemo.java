@@ -39,17 +39,17 @@ public class ArrayStreamDemo {
         int[] arr = { 50, 10, 250, 100, 23, 45, 33, 55, 67, 83, 90, 92, 94, 74, 200, 40052, 3467, 125};
 
         Arrays.stream(arr).forEach(
-                i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}")
+                i -> out.println("Thread.currentThread().getName()}: " + i)
         );
 
         out.println("Creating a stream from a part of the array");
         Arrays.stream(arr, 3,6).forEach(
-                i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}")
+                i -> out.println("Thread.currentThread().getName()}: " + i)
         );
 
         out.println("Creating a parallel strem from the array");
         Arrays.stream(arr).parallel().forEach(
-                i -> out.println(STR."\{Thread.currentThread().getName()}: \{i}")
+                i -> out.println("Thread.currentThread().getName()}: " + i)
         );
     }
 }

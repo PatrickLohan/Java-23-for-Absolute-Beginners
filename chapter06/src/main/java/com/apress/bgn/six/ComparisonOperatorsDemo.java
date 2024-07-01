@@ -37,7 +37,7 @@ public class ComparisonOperatorsDemo {
         int[] values = {1, 7, 9, 2, 6,};
         for (int i = 0; i < values.length; ++i) {
             if (values[i] == 2) {  // <1>
-                out.println(STR."Fount 2 at index: \{i}");
+                out.println("Fount 2 at index: " + i);
             }
         }
     }

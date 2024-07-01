@@ -46,7 +46,7 @@ public class CustomGathererDemo {
         var reducedSongs = songs.gather(new DistinctBySinger())
                 .peek(out::println);
         var songList = reducedSongs.toList();
-        out.println(STR."\{songList.size()} == \{new HashSet<>(songList).size()}");
+        out.println("songList.size()} == " + new HashSet<>(songList).size());
     }
 
     record DistinctBySinger() implements Gatherer<Song, Set<String>, Song> {

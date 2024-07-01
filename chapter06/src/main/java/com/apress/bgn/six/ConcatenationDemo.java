@@ -37,13 +37,10 @@ public class ConcatenationDemo {
         int i1 = 0;
         int i2 = 1;
         int i3 = 2;
-        out.println(i1 + i2 + i3);
-      /*  out.println("Result1 = " + (i1 + i2) + i3);
-        out.println("Result2 = " + i1 + i2 + i3);
-        out.println("Result3 = " + (i1 + i2 + i3));*/
 
-        out.println(STR."Result1 = \{i1 + i2}\{i3}");
-        out.println(STR."Result2 = \{i1}\{i2}\{i3}");
-        out.println(STR."Result3 = \{i1 + i2 + i3}");
+        out.println(i1 + i2 + i3);
+        out.println("Result1 = " + (i1 + i2) + i3);
+        out.println("Result2 = " + i1 + i2 + i3);
+        out.println("Result3 = " + (i1 + i2 + i3));
     }
 }

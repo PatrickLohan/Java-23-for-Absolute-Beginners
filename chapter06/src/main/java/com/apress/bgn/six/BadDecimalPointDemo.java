@@ -40,7 +40,7 @@ public class BadDecimalPointDemo {
         if (f3 == 4.4) { // !!!
             out.println("expected float value of 4.4");
         } else {
-            out.println(STR."!! unexpected value of \{f3}");
+            out.println("!! unexpected value of " + f3);
         }
     }
 }

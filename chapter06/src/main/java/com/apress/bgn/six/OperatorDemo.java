@@ -65,9 +65,9 @@ public class OperatorDemo {
         // starting with Java 14
         for (Artist artist : artists) {
             if (artist instanceof Musician musician) {
-                out.println(STR."Songs: \{musician.getSongs()}");
+                out.println("Songs: " + musician.getSongs());
             } else {
-                out.println(STR."Other Type: \{artist.getClass()}");
+                out.println("Other Type: " + artist.getClass());
             }
         }
 

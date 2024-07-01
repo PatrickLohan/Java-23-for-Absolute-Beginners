@@ -34,7 +34,7 @@ public class VirtualThreadsDemo {
     void main() {
         for (int i = 0; i < 1000; ++i) {
             var rdt = new RandomDurationRunnable();
-            Thread.ofVirtual().name(STR."rdt \{i}").start(rdt);
+            Thread.ofVirtual().name("rdt " + i).start(rdt);
         }
     }
 }

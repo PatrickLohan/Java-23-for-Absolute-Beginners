@@ -38,7 +38,7 @@ public class WhileLoopDemo {
         int[] arr = new int[0]; //{5, 1, 4, 2, 3};
         int i = 0;
         while(i < arr.length) {
-            out.println(STR."arr[\{i}] = \{arr[i]}");
+            out.println("arr[" +i +"] = " + arr[i]);
             ++i;
         }
     }

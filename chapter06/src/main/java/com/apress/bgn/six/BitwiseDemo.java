@@ -83,8 +83,8 @@ public class BitwiseDemo {
     }
 
     public static void print8Bits(byte arg) {
-        out.println(STR."decimal:\{arg}");
+        out.println("decimal:" + arg);
         String str = String.format("%8s", Integer.toBinaryString(arg)).replace(' ', '0');
-        out.println(STR."binary:\{str}");
+        out.println("binary:" + str);
     }
 }

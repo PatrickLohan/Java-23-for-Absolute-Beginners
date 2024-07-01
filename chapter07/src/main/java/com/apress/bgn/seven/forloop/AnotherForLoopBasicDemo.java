@@ -38,8 +38,8 @@ public class AnotherForLoopBasicDemo {
         int[] arr = {5, 1, 4, 2, 3};
         int i = 0;
         for (; i < arr.length; ++i) {
-            out.println(STR."arr[\{i}] = \{arr[i]}");
+            out.println("arr[" +i +"] = " + arr[i]);
         }
-        out.println(STR."Loop exited with index: \{i}");
+        out.println("Loop exited with index: " + i);
     }
 }

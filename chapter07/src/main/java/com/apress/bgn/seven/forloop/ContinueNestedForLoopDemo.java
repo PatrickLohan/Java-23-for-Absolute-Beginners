@@ -40,7 +40,7 @@ public class ContinueNestedForLoopDemo {
                     if (k == 1) {
                         continue HERE; 
                     }
-                    out.println(STR."(i, j, k) = (\{i},\{j},\{k})");
+                    out.println("(i, j, k) = (" +i + ", " + j + ", " + k +")");
                 }
             }
         }

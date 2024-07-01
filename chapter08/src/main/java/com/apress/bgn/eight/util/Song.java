@@ -91,15 +91,13 @@ public class Song implements Comparable<Song> {
 
     @Override
     public String toString() {
-        return STR."""
-                Song {
-                    id=\{id}
-                    singer=\{singer}
-                    title=\{title}
-                    duration=\{duration}
-                    audioType=\{audioType}
-                }
-                """;
+        return "Song{" +
+                "id=" + id +
+                ", singer='" + singer + '\'' +
+                ", title='" + title + '\'' +
+                ", duration=" + duration +
+                ", audioType=" + audioType +
+                '}';
     }
 
     public void setId(Long id) {

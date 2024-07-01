@@ -40,17 +40,17 @@ public class CalendarDateDemo {
         var sdf = new SimpleDateFormat("dd-MM-yyyy");
         Calendar calendar = new GregorianCalendar();
         Date currentDate = calendar.getTime();
-        System.out.println(STR."Today: \{sdf.format(currentDate)}");
+        System.out.println("Today: " + sdf.format(currentDate));
 
         calendar.set(1977, 9, 16);
         var johnBirthday = calendar.getTime();
-        System.out.println(STR."John’s Birthday: \{sdf.format(johnBirthday)}");
+        System.out.println("John’s Birthday: "+ sdf.format(johnBirthday));
 
         int day = calendar.get(Calendar.DAY_OF_MONTH);
-        System.out.println(STR."Day: \{day}");
+        System.out.println("Day: " + day);
         int month = calendar.get(Calendar.MONTH);
-        System.out.println(STR."Month: \{month}");
+        System.out.println("Month: " + month);
         int year = calendar.get(Calendar.YEAR);
-        System.out.println(STR."Year: \{year}");
+        System.out.println("Year: " + year);
     }
 }

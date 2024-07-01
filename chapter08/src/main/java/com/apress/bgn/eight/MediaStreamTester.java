@@ -95,21 +95,21 @@ public class MediaStreamTester {
         Integer totalDuration0 = songs
                 .mapToInt(Song::getDuration)
                 .sum();
-        out.println(STR."Total duration: \{totalDuration0}");
+        out.println("Total duration: " + totalDuration0);
 
         out.println("----- Testing reduce(..) -----");
         songs = StreamMediaLoader.loadSongs();
         Integer totalDuration1 = songs
                 .mapToInt(Song::getDuration)
                 .reduce(0, (a, b) -> a + b);
-        out.println(STR."Total duration: \{totalDuration1}");
+        out.println("Total duration: " + totalDuration1);
 
         out.println("Listing 8-40. Calling `peek(..)` on stream elements.");
         songs = StreamMediaLoader.loadSongs();
         List<String> result = songs.filter(s -> s.getDuration() > 300)
-                .peek(e -> out.println(STR."\t Filtered value: \{e}"))
+                .peek(e -> out.println("\t Filtered value: " + e))
                 .map(Song::getTitle)
-                .peek(e -> out.println(STR."\t Mapped value: \{e}"))
+                .peek(e -> out.println("\t Mapped value: " + e))
                 .toList();
 
 
@@ -121,24 +121,24 @@ public class MediaStreamTester {
         out.println("Listing 8-42. Example using `anyMatch(..)`.");
         songs = StreamMediaLoader.loadSongs();
         boolean b0 = songs.anyMatch(s -> s.getTitle().contains("Paper"));
-        out.println(STR."Are there songs with title containing ’Paper’? \{b0}");
+        out.println("Are there songs with title containing ’Paper’? " + b0);
 
         out.println("Listing 8-43. Example using `skip(..)` and `anyMatch(..)`.");
         songs = StreamMediaLoader.loadSongs();
         boolean b1 = songs.parallel()
                 .skip(6)
                 .anyMatch(s -> s.getTitle().contains("Paper"));
-        out.println(STR."Are there songs with title containing `Paper`? \{b1}");
+        out.println("Are there songs with title containing `Paper`? " + b1);
 
 
         out.println("Listing 8-44. Showing what `allMatch(..)` can do.");
         songs = StreamMediaLoader.loadSongs();
         boolean b2 = songs.allMatch(s -> s.getDuration() > 300); // <1>
-        out.println(STR."Are all songs longer than 5 minutes? \{b2}");
+        out.println("Are all songs longer than 5 minutes? " + b2);
 
         out.println("Listing 8-44. Showing what `noneMatch(..)` can do.");
         songs = StreamMediaLoader.loadSongs();
         boolean b3 = songs.noneMatch(s -> s.getDuration() > 300); // <1>
-        out.println(STR."Are all songs shorter than 5 minutes? \{b3}");
+        out.println("Are all songs shorter than 5 minutes? " + b3);
     }
 }

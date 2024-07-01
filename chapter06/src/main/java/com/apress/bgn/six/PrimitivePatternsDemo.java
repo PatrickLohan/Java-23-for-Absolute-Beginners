@@ -36,22 +36,22 @@ public class PrimitivePatternsDemo {
         var generated = genVal();
 
         if (generated instanceof byte b){
-            System.out.println(STR."byte val = \{b}");
+            System.out.println("byte val = " + b);
         }
         if (generated instanceof short s){
-            System.out.println(STR."short val = \{s}");
+            System.out.println("short val = " + s);
         }
         if (generated instanceof char c){
-            System.out.println(STR."char val = \{c}");
+            System.out.println("char val = " + c);
         }
         if (generated instanceof int i) {
-            System.out.println(STR."int val = \{i}");
+            System.out.println("int val = " + i);
         }
         if (generated instanceof long l) {
-            System.out.println(STR."long val = \{l}");
+            System.out.println("long val = " + l);
         }
         if (generated instanceof float f) {
-            System.out.println(STR."float val = \{f}");
+            System.out.println("float val = " + f);
         }
     }
 

@@ -33,13 +33,13 @@ package com.apress.bgn.five;
 class RandomDurationRunnable  implements  Runnable {
     @Override
     public void run() {
-        System.out.println(STR."\{Thread.currentThread().getName()} started...");
+        System.out.println("Thread.currentThread().getName()} started...");
         for (int i = 0; i < 10; ++i) {
             try {
                 Thread.sleep(i * 10);
             } catch (InterruptedException _) {}
         }
-        System.out.println(STR."\{Thread.currentThread().getName()} ended.");
+        System.out.println("Thread.currentThread().getName()} ended.");
     }
 }
 

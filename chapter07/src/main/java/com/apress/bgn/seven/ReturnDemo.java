@@ -38,7 +38,7 @@ public class ReturnDemo {
         int foundIdx = findEvenUsingFor(arr); 
 
         if (foundIdx != -1) {
-            out.println(STR."First even is at: \{foundIdx}");
+            out.println("First even is at: " + foundIdx);
         }
     }
 

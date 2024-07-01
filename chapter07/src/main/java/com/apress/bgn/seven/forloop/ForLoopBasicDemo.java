@@ -36,7 +36,7 @@ public class ForLoopBasicDemo {
     void main() {
         int[] arr = {5, 1, 4, 2, 3};
         for (int i = 0; i < arr.length; ++i) {
-            out.println(STR."arr[\{i}] = \{arr[i]}");
+            out.println("arr[" +i +"] = " + arr[i]);
         }
     }
 }

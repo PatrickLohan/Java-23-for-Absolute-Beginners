@@ -29,8 +29,6 @@ package com.apress.bgn.one;
 
 import java.util.List;
 
-import static java.lang.StringTemplate.STR;
-
 /**
  * Created by iuliana.cosmina  on 07/01/2024
  *
@@ -42,6 +40,6 @@ public class Example01 {
     public static void main(String[] args) {
         var items = List.of("1", "a", "2", "a", "3", "a");
         items.forEach(item ->
-                System.out.println(STR."\{item.equals("a") ? "A" : "Not A" }"));
+                System.out.println(item.equals("a") ? "A" : "Not A"));
     }
 }

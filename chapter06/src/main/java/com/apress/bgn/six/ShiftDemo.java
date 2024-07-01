@@ -72,10 +72,10 @@ public class ShiftDemo {
     }
 
     public static void print32Bits(int arg) {
-        out.println(STR."decimal:\{arg}");
+        out.println("decimal:" + arg);
         String str = arg > 0 ?
                 String.format("%32s", Integer.toBinaryString(arg)).replace(' ', '0') :
                 String.format("%32s", Integer.toBinaryString(arg)).replace(' ', '1') ;
-        out.println(STR."binary:\{str}");
+        out.println("binary: " + str);
     }
 }

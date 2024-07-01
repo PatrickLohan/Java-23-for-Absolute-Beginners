@@ -68,7 +68,7 @@ public class EnumSwitchDemo {
             }
             out.println(season);
         } catch(IllegalArgumentException iae) {
-            out.println(STR."Unrecognized enum value: \{a}");
+            out.println("Unrecognized enum value: " + a);
         }
     }
 }

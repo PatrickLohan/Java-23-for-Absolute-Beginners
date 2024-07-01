@@ -37,11 +37,11 @@ public class UnaryOperatorsDemo {
         // prefixed
         int i = 1;
         int j = ++i;
-        out.println(STR."j is \{j}, i is \{i}");
+        out.println("j is " + j+ ", i is " + i);
 
         //postfixed
         i = 1;
         j = i++;
-        out.println(STR."j is \{j}, i is \{i}");
+        out.println("j is " + j +", i is " + i);
     }
 }

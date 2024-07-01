@@ -39,9 +39,9 @@ public class YeyAnotherForLoopDemo {
             if (i >= arr.length) {
                 break;
             }
-            out.println(STR."arr[\{i}] = \{arr[i]}");
+            out.println("arr[" +i +"] = " + arr[i]);
             ++i;
         }
-        out.println(STR."Loop exited with index: \{i}");
+        out.println("Loop exited with index: " + i);
     }
 }

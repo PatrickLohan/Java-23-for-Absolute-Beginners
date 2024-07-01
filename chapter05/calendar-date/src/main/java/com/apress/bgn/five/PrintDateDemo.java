@@ -39,17 +39,17 @@ public class PrintDateDemo {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             Date johnBirthday = sdf.parse("16-10-1977");
-            System.out.println(STR."John’s Birthday: \{sdf.format(johnBirthday)}");
+            System.out.println("John’s Birthday: " + sdf.format(johnBirthday));
 
             //day of the month
             int day = johnBirthday.getDate();
-            System.out.println(STR."Day: \{day}");
+            System.out.println("Day: " + day);
 
             int month = johnBirthday.getMonth() + 1;
-            System.out.println(STR."Month: \{month}");
+            System.out.println("Month: " + month);
 
             int year = johnBirthday.getYear();
-            System.out.println(STR."Year: \{year}");
+            System.out.println("Year: " + year);
 
         } catch (ParseException e) {
             e.printStackTrace();

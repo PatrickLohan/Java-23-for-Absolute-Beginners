@@ -44,7 +44,7 @@ public class StreamRecyclingDemo {
             intStream.forEach(System.out::println);
             intStream.forEach(System.out::println);
         } catch (IllegalStateException ise) {
-            err.println(STR."Streams cannot be recycled: \{ise.getMessage()}");
+            err.println("Streams cannot be recycled: " + ise.getMessage());
             ise.printStackTrace();
         }
     }

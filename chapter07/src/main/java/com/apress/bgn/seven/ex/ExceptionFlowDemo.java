@@ -51,7 +51,7 @@ public class ExceptionFlowDemo {
     public static int checkNotEven(int... arr) throws EvenException {
         for (int i = 0; i < arr.length; ++i) {
             if (arr[i] % 2 == 0) {
-                throw new EvenException(STR."Did not expect an even number at \{i}");
+                throw new EvenException("Did not expect an even number at " + i);
             }
         }
         return -1;

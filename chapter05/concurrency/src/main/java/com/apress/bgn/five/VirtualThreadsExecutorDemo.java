@@ -59,7 +59,7 @@ public class VirtualThreadsExecutorDemo {
             }
 
             time = System.currentTimeMillis() - time;
-            log.info(STR.">> Virtual threads: sum = \{sum}; time = \{time} ms");
+            log.info(">> Virtual threads: sum = " + sum+ ", time = " + time + " ms");
         } catch (ExecutionException | InterruptedException e) {
             throw new RuntimeException("Failed to execute tasks", e);
         }
@@ -71,7 +71,7 @@ class MyTask implements Callable<Integer> {
     @Override
     public Integer call() {
         var pause = VirtualThreadsExecutorDemo.RND.nextInt(0, 1000);
-        log.info(STR."\{Thread.currentThread()} produces \{pause}");
+        log.info("Thread.currentThread()} produces " + pause);
         return pause;
     }
 }

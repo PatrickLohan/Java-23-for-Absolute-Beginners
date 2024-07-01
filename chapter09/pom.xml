@@ -16,8 +16,10 @@
 
     <modules>
         <module>logging-jul</module>
-      <!--  <module>logging-slf4j</module>
-        <module>processapi</module>
+        <module>logging-logback</module>
+        <module>logging-log4j</module>
+        <module>logging-base</module>
+        <!--  <module>processapi</module>
         <module>testing</module>-->
     </modules>
 

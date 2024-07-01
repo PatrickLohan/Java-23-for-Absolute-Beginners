@@ -39,13 +39,13 @@ public class LambdaThreadsDemo {
             new Thread(
                     //Runnable implemented on the spot
                     () -> {
-                        System.out.println(STR."\{currentThread().getName()} started...");
+                        System.out.println("currentThread().getName()} started...");
                         for (int j = 0; j < 10; ++j) {
                             try {
                                 sleep(j * 10);
                             } catch (InterruptedException _) { }
                         }
-                        System.out.println(STR."\{currentThread().getName()} ended.");
+                        System.out.println("currentThread().getName()} ended.");
                     }).start();
         }
     }

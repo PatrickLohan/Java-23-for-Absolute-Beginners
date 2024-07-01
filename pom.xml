@@ -36,7 +36,7 @@
         <revision>1.0-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <log4j.version>2.23.1</log4j.version>
+        <log4j.version>3.0.0-beta2</log4j.version>
         <mysql.driver.version>8.4.0</mysql.driver.version>
 
         <java.version>23</java.version>
@@ -48,6 +48,11 @@
         <defaultGoal>clean install</defaultGoal> <!-- TODO change this to clean site at the right moment -->
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.4.0</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>

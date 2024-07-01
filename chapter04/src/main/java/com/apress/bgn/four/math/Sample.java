@@ -34,8 +34,8 @@ import java.lang.Math;
  */
 public class Sample {
     public static void main(String... args) {
-        System.out.println(STR."PI value =\{Math.PI}");
-        System.out.println(STR."My PI value= \{com.apress.bgn.four.math.Math.PI}");
+        System.out.println("PI value = " + Math.PI);
+        System.out.println("My PI value= " + com.apress.bgn.four.math.Math.PI);
 
         int mynumber = 0;
         int myNumber = 1;
