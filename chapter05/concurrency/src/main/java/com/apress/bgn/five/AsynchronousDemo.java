@@ -37,23 +37,23 @@ public class AsynchronousDemo {
 
     void main() throws ExecutionException, InterruptedException {
         CompletableFuture.runAsync(
-                    () -> System.out.println("Thread.currentThread().getName()} async run (1)") // Runnable as lambda
+                    () -> System.out.println(Thread.currentThread().getName() +" async run (1)") // Runnable as lambda
                 ).get(); // Block and wait for the future to complete
 
-        var result1 = CompletableFuture.supplyAsync(() ->  "Thread.currentThread().getName()} async run (2)" // Supplier<String> as lambda
+        var result1 = CompletableFuture.supplyAsync(() ->  Thread.currentThread().getName() + " async run (2)" // Supplier<String> as lambda
             ).get(); // Block and wait for the future to complete
         System.out.println(result1);
 
-        var result2 = CompletableFuture.supplyAsync(() ->  "Thread.currentThread().getName()} async run (3)" // Supplier<String> as lambda
+        var result2 = CompletableFuture.supplyAsync(() ->  Thread.currentThread().getName()+ " async run (3)" // Supplier<String> as lambda
             ).thenApply(String::toUpperCase) // apply transformation to result
                 .get(); // Block and wait for the future to complete
         System.out.println(result2);
 
-        CompletableFuture.supplyAsync(() ->  "Thread.currentThread().getName()} async run (4)" // Supplier<String> as lambda
+        CompletableFuture.supplyAsync(() ->  Thread.currentThread().getName() + " async run (4)" // Supplier<String> as lambda
             ).thenAccept(System.out::println); //  Consumer<T> processes the result when received
 
-        var result3 = CompletableFuture.supplyAsync(() ->  "Thread.currentThread().getName()} async run (5)" // Supplier<String> as lambda
-                ).thenApplyAsync(s -> "Thread.currentThread().getName()} thenApplyAsync : " + s) // apply async transformation to result
+        var result3 = CompletableFuture.supplyAsync(() -> Thread.currentThread().getName()+ "  async run (5)" // Supplier<String> as lambda
+                ).thenApplyAsync(s -> Thread.currentThread().getName() + " thenApplyAsync : " + s) // apply async transformation to result
                 .get(); // Block and wait for the future to complete
         System.out.println(result3);
 
@@ -63,7 +63,7 @@ public class AsynchronousDemo {
                     if (System.currentTimeMillis()%2 ==0) {
                         throw new IllegalStateException("No can do!");
                     }
-                    return "Thread.currentThread().getName()} async run (6)";
+                    return Thread.currentThread().getName() + " async run (6)";
                 }
         ).exceptionally(ex -> {
                     System.err.println(ex.getMessage());

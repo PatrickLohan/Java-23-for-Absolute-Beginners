@@ -34,13 +34,13 @@ class RandomDurationThread extends Thread {
 
     @Override
     public void run() {
-        System.out.println("this.getName()} started...");
+        System.out.println(this.getName()+ " started...");
         for (int i = 0; i < 10; ++i) {
             try {
                 Thread.sleep(i * 10);
             } catch (InterruptedException _) {}
         }
-        System.out.println("this.getName()} ended.");
+        System.out.println(this.getName() +" ended.");
     }
 }
 

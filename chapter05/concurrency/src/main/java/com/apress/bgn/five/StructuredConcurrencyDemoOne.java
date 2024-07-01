@@ -47,10 +47,9 @@ public class StructuredConcurrencyDemoOne {
             Subtask<Integer> task2 =  scope.fork(() -> 2);
 
             scope.join();
-            out.println("""
-                    task1: " + task1.state()}, result : " + task1.state() == Subtask.State.SUCCESS ? task1.get() : "Not Available"}
-                    task2: " + task2.state()}, result : " + task2.state() == Subtask.State.SUCCESS ? task2.get() : "Not Available"}
-                    """);
+            out.println("task1: " + task1.state() + ", result : " + (task1.state() == Subtask.State.SUCCESS ? task1.get() : "Not Available")  +
+                        "\ntask2: " + task2.state()+ ",  result : " + (task2.state() == Subtask.State.SUCCESS ? task2.get() : "Not Available")
+                    );
             out.println("Execution time : " + Duration.between(start, Instant.now()).toMillis() + " ms");
             out.println("Task result: " + scope.result());
         } catch (InterruptedException | ExecutionException e) {
