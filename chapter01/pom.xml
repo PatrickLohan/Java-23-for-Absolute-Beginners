@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>chapter01</artifactId>
-    <name>Chapter 01</name>
+    <name>Chapter 01: Introductory code</name>
     <description>Contains sources for Chapter 1.</description>
     <packaging>jar</packaging>
 

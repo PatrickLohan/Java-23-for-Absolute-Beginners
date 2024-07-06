@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>chapter06</artifactId>
-    <name>Chapter 06</name>
+    <name>Chapter 06: Operators</name>
     <description>Contains sources for Chapter 6.</description>
     <packaging>jar</packaging>
 

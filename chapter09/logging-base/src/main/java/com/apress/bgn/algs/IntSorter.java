@@ -31,7 +31,7 @@ package com.apress.bgn.algs;
  * Interface <code>IntSorter</code> is an interface that needs to be implemented by classes
  * that provide a method to sort an array of <code>int</code> values. <p>
  *
- * <code>int[]</code> was chosen as a type because this type of values are always sortable.
+ * <code>int[]</code> was chosen as a type because int values are sortable efficiently
  *
  * @author Iuliana Cosmina
  * since 1.0

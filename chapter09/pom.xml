@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>chapter09</artifactId>
-    <name>Chapter 09</name>
+    <name>Chapter 09: Testing, Debugging and Documenting</name>
     <description>Contains sources for Chapter 9.</description>
     <packaging>pom</packaging>
 
@@ -19,8 +19,8 @@
         <module>logging-logback</module>
         <module>logging-log4j</module>
         <module>logging-base</module>
-        <!--  <module>processapi</module>
-        <module>testing</module>-->
+        <module>process-api</module>
+        <module>testing</module>
     </modules>
 
 

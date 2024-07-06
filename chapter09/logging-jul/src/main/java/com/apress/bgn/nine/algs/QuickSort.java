@@ -28,8 +28,10 @@ SOFTWARE.
 package com.apress.bgn.nine.algs;
 
 /**
- * The {@code QuickSort} class contains a single method that is a concrete implementation of {@link com.apress.bgn.ch9.algs.IntSorter#sort(int[], int, int)}.<p>
- * Instances of this class can be used to sort an {@code int[]} array using the quick-sort algorithm.
+ * The `QuickSort` class contains a single method that is a concrete implementation of
+ * [IntSorter#sort(int[], int, int)](com.apress.bgn.nine.algs.IntSorter#sort(int[], int, int)).
+ * Instances of this class can be used to sort an `int[]` array using the quick-sort algorithm.
+ * Quicksort is an efficient, general-purpose, _divide-and-conquer_ sorting algorithm.
  *
  * @author Iuliana Cosmina
  * since 1.0
@@ -39,7 +41,7 @@ public class QuickSort implements IntSorter {
 
 
     /**
-     * {@link "https://youtu.be/ywWBy6J5gz8" target="_blank"> How it works}
+     * [How it works](https://youtu.be/ywWBy6J5gz8)
      *
      * @param arr int array to be sorted
      * @param low lower limit of the interval to be sorted

@@ -105,9 +105,9 @@ public class MergeSort implements IntSorter {
         while (j < rightLength) {
             arr[k++] = right[j++];
         }
-        StringBuilder sb = new StringBuilder("Called merge of: [")
+        var sb = new StringBuilder("Called merge of [low, high, middle]: [")
                 .append(low).append(" ").append(high).append(" ").append(middle)
-                .append("],) ");
+                .append("]) ");
         for (int z = low; z <= high; ++z) {
             sb.append(arr[z]).append(" ");
         }

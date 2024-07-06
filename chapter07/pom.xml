@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>chapter07</artifactId>
-    <name>Chapter 07</name>
+    <name>Chapter 07: Controlling The Flow</name>
     <description>Contains sources for Chapter 7.</description>
     <packaging>jar</packaging>
 

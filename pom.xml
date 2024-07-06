@@ -38,6 +38,7 @@
 
         <log4j.version>3.0.0-beta2</log4j.version>
         <mysql.driver.version>8.4.0</mysql.driver.version>
+        <jupiter.junit.version>5.10.3</jupiter.junit.version>
 
         <java.version>23</java.version>
         <maven.compiler.source>23</maven.compiler.source>
@@ -45,6 +46,8 @@
     </properties>
 
     <build>
+        <!-- <defaultGoal>clean install site site:stage</defaultGoal> -->
+        <!-- <defaultGoal>clean install site site:stage site:run</defaultGoal> -->
         <defaultGoal>clean install</defaultGoal> <!-- TODO change this to clean site at the right moment -->
         <pluginManagement>
             <plugins>
@@ -57,11 +60,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.13.0</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.2.5</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -78,6 +76,45 @@
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>3.3.1</version>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.12.1</version>
+                    <configuration>
+                        <generateReports>true</generateReports>
+                        <generateSitemap>true</generateSitemap>
+                        <inputEncoding>${project.reporting.outputEncoding}</inputEncoding>
+                        <outputEncoding>${project.reporting.outputEncoding}</outputEncoding>
+                        <relativizeDecorationLinks>false</relativizeDecorationLinks>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.6.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.2.5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jxr-plugin</artifactId>
+                    <version>3.4.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.7.0</version>
+                </plugin>
+
             </plugins>
         </pluginManagement>
         <plugins>
@@ -99,8 +136,114 @@
                     <argLine>--enable-preview</argLine>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <!-- Build documentation with ./mnnw or  mvn (default goal)-->
+                    <!-- Start server with: ./mvnw site:run or mvn site:run -->
+                    <!-- Starts a Jetty server on port 9000 serving the project documentation-->
+                    <port>9000</port>
+                    <tempWebappDirectory>${basedir}/target/staging</tempWebappDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>site</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/staging</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/site/extra</directory>
+                                    <includes>
+                                        <include>*.html</include>
+                                    </includes>
+                                    <filtering>true</filtering>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <!-- Needed to include this in the site report-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <configuration>
+                    <showSuccess>false</showSuccess>
+                    <outputDirectory>${project.build.directory}/site</outputDirectory>
+                    <reportsDirectories>
+                        <reportsDirectories>${project.build.directory}/surefire-reports</reportsDirectories>
+                    </reportsDirectories>
+                    <aggregate>true</aggregate>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <id>aggregate</id>
+                        <reports>
+                            <report>aggregate</report>
+                            <report>test-aggregate</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <failOnError>false</failOnError>
+                    <doclint>none</doclint>
+                    <additionalOptions>-html5</additionalOptions>
+                    <show>public</show>
+                    <quiet>true</quiet>
+                    <doctitle>${project.name}</doctitle>
+                    <inputEncoding>${project.reporting.outputEncoding}</inputEncoding>
+                    <outputEncoding>${project.reporting.outputEncoding}</outputEncoding>
+                    <sourceFileExcludes>
+                        <exclude>**/module-info.java</exclude>
+                    </sourceFileExcludes>
+                    <reportSets>
+                        <reportSet>
+                            <id>aggregate</id>
+                            <reports>
+                                <report>aggregate-no-fork</report>
+                                <report>test-aggregate-no-fork</report>
+                            </reports>
+                        </reportSet>
+                        <reportSet>
+                            <id>default</id>
+                            <reports>
+                                <report>javadoc</report>
+                                <report>test-javadoc</report>
+                            </reports>
+                        </reportSet>
+                    </reportSets>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
     <developers>
         <developer>

@@ -31,6 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static java.lang.System.out;
+
 
 /**
  * Created by iuliana.cosmina on 15/05/2024
@@ -53,17 +55,17 @@ public class LogicalOperatorsDemo {
         for (int i = 0; i < 20; ++i) {
             int index = getRandomIndex(terms.size());
             String term = terms.get(index);
-            System.out.println("Generated index: " + index);
+            out.println("Generated index: " + index);
            /* if (term != null & term.equals("Rose")) {
-                System.out.println("Rose was found");
+                out.println("Rose was found");
             }*/
 
            /* if (term != null && term.equals("Rose")) {
-                System.out.println("Rose was found");
+                out.println("Rose was found");
             }*/
 
             if (term == null | term.equals("Rose")) {
-                System.out.println("null or Rose was found");
+                out.println("null or Rose was found");
             }
         }
     }

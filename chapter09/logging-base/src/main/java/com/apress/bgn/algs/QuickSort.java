@@ -31,6 +31,7 @@ package com.apress.bgn.algs;
  * The <code>QuickSort</code> class contains a single method that is a concrete implementation of
  * {@link IntSorter#sort(int[], int, int)}.<p>
  * Instances of this class can be used to sort an <code>int[]</code> array using the quick-sort algorithm.
+ * Quicksort is an efficient, general-purpose, <em>divide-and-conquer</em> sorting algorithm.
  *
  * @author Iuliana Cosmina
  * since 1.0

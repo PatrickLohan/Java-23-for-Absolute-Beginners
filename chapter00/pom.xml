@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>chapter00</artifactId>
-    <name>Chapter 00</name>
+    <name>Chapter 00: Basic code</name>
     <description>Base classes to use as dependencies in other projects.</description>
     <packaging>jar</packaging>
 

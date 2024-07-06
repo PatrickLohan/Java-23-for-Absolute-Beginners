@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>chapter05</artifactId>
-    <name>Chapter 05</name>
+    <name>Chapter 05: Data Types</name>
     <description>Contains sources for Chapter 5.</description>
     <packaging>pom</packaging>
 

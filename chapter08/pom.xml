@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>chapter08</artifactId>
-    <name>Chapter 08</name>
+    <name>Chapter 08: The Stream API</name>
     <description>Contains sources for Chapter 8.</description>
     <packaging>jar</packaging>
 

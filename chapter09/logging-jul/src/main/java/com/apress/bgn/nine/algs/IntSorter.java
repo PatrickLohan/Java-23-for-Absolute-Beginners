@@ -31,8 +31,16 @@ package com.apress.bgn.nine.algs;
  * Interface {@code IntSorter} is an interface that needs to be implemented
  * by classes that provide a method to sort an array of {@code int} values. <p>
  *
- * {@code int[]} was chosen as a type because this type
- * of values are always sortable. ({@link Comparable})
+ * {@code int[]} was chosen as a type because int values are sortable efficiently ({@link Comparable})
+ *
+ * <pre>
+ *     You can use any implementation like this:
+ *      {@snippet id="highlighting" lang="java" :
+            IntSorter mergeSort = new MergeSort(); // @highlight type=highlighted
+            mergeSort.sort(arr,0,arr.length-1);
+ *     }
+ *     where {@code arr} is an {@code int[]}
+ * </pre>
  *
  * @author Iuliana Cosmina
  * @since 1.0

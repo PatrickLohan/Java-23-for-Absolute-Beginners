@@ -30,7 +30,6 @@ package com.apress.bgn.six;
 /**
  * Created by iuliana.cosmina on 14/05/2024
  */
-/*
 public class PrimitivePatternsDemo {
     void main() {
         var generated = genVal();
@@ -71,4 +70,4 @@ public class PrimitivePatternsDemo {
         }
     }
 }
-*/
+
