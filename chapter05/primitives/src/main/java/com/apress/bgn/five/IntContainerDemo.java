@@ -32,7 +32,7 @@ package com.apress.bgn.five;
  */
 public class IntContainerDemo {
 
-    public static void main(String... args) {
+    void main() {
         IntContainer k = new IntContainer(42);
         IntContainer q = new IntContainer(44);
         swap(k,q);

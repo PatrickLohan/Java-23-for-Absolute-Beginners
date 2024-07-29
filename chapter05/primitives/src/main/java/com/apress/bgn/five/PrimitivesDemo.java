@@ -34,7 +34,7 @@ import java.util.Date;
  */
 public class PrimitivesDemo {
 
-    public static void main(String... args) {
+    void main() {
         var i =5;
         var j =7;
         var d = new Date();

@@ -25,17 +25,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.nine;
-
-import com.apress.bgn.nine.algs.IntSorter;
-import com.apress.bgn.nine.algs.QuickSort;
-
-/**
- * @author iuliana.cosmina on 05/07/2024
- */
-public class DocDemo {
-    void main(){
-        IntSorter sorter = new QuickSort();
-        sorter.
-    }
+open module chapter.ten.web.app {
+    requires jakarta.servlet;
+    requires java.logging;
 }

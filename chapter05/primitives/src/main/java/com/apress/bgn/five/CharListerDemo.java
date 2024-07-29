@@ -34,7 +34,7 @@ import java.util.stream.IntStream;
  */
 public class CharListerDemo {
 
-    public static void main(String... args) {
+    void main() {
         // using 'for' statement
       /*  for (int i = 0; i < 65536; ++i ) {
             char c = (char) i;

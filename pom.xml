@@ -6,7 +6,7 @@
 
     <groupId>com.apress.bgn</groupId>
     <artifactId>java-23-for-absolute-beginners</artifactId>
-    <version>${revision}</version> <!-- read from .mvn/maven.config -->
+    <version>3.0-SNAPSHOT</version> <!-- read from .mvn/maven.config in Maven 4.0.0, replace with ${revision}-->
     <packaging>pom</packaging> <!-- this is specific to the parent pom.xml -->
 
     <name>Java for Absolute Beginners, 3nd edition</name>
@@ -37,13 +37,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <log4j.version>3.0.0-beta2</log4j.version>
-        <mysql.driver.version>8.4.0</mysql.driver.version>
+        <commons.lang3.version>3.15.0</commons.lang3.version>
+        <lombok.version>1.18.34</lombok.version>
         <jupiter.junit.version>5.10.3</jupiter.junit.version>
+        <byte.buddy.version>1.14.18</byte.buddy.version>
+        <mysql.driver.version>9.0.0</mysql.driver.version>
+        <tomcat.version>11.0.0-M22</tomcat.version>
 
         <java.version>23</java.version>
         <maven.compiler.source>23</maven.compiler.source>
         <maven.compiler.target>23</maven.compiler.target>
     </properties>
+
+    <!-- Use this commands to check for new versions of dependencies and plugins-->
+    <!-- mvn versions:display-dependency-updates -->
+    <!-- mvn versions:display-plugin-updates -->
 
     <build>
         <!-- <defaultGoal>clean install site site:stage</defaultGoal> -->
@@ -51,6 +59,11 @@
         <defaultGoal>clean install</defaultGoal> <!-- TODO change this to clean site at the right moment -->
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>3.5.0</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
@@ -65,6 +78,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.3.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.4.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -84,8 +102,6 @@
                     <configuration>
                         <generateReports>true</generateReports>
                         <generateSitemap>true</generateSitemap>
-                        <inputEncoding>${project.reporting.outputEncoding}</inputEncoding>
-                        <outputEncoding>${project.reporting.outputEncoding}</outputEncoding>
                         <relativizeDecorationLinks>false</relativizeDecorationLinks>
                     </configuration>
                 </plugin>
@@ -112,12 +128,39 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.7.0</version>
+                    <version>3.8.0</version>
                 </plugin>
-
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.7.1</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
+            <!-- The enforcer plugin provides goals to control certain environmental constraints such as Maven version, JDK version and OS family along with many more standard rules and user created rules. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-versions</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.9.8</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>${java.version}</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

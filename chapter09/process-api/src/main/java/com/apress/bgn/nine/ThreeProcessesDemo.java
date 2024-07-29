@@ -39,7 +39,7 @@ public class ThreeProcessesDemo {
     private static final Logger log =
             LoggerFactory.getLogger(ThreeProcessesDemo.class);
 
-    public static void main(String... args) {
+    void main() {
         try {
             List<ProcessBuilder> builders = List.of(
                     new ProcessBuilder("/bin/sh", "-c",

@@ -31,7 +31,7 @@ package com.apress.bgn.five;
  * Created by iuliana.cosmina on 28/04/2024
  */
 public class BadStringDemo {
-    public static void main() {
+    void main() {
     /*  String text332 = "Special " character" ;
         String text331 = "Special \" character" ;
 

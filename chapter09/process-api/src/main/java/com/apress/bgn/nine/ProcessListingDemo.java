@@ -39,7 +39,7 @@ import java.util.Optional;
 public class ProcessListingDemo {
     private static final Logger log = LoggerFactory.getLogger(ProcessListingDemo.class);
 
-    public static void main(String... args){
+    void main(){
         Optional<String> currUser = ProcessHandle.current().info().user();
 
         ProcessHandle.allProcesses().filter(ph -> ph.info().user().equals(currUser) && ph.info().commandLine().isPresent())

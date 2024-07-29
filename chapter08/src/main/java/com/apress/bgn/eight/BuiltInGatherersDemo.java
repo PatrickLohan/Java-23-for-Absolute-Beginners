@@ -66,7 +66,7 @@ public class BuiltInGatherersDemo {
         out.println(" -- scan  --");
         Stream.of(0,1,1,2,3,5,8,13,21,34,55,89,144).
                 gather(Gatherers.scan(() -> 0, Integer::sum))
-                .forEach(de -> out.print("de} "));
+                .forEach(de -> out.print(de +" "));
 
         out.println("\n-- mapConcurrent --");
         Function<Integer, Integer> triple = integer -> {
@@ -77,6 +77,6 @@ public class BuiltInGatherersDemo {
         Stream.of(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25)
                 .gather(Gatherers.mapConcurrent(5, triple))
                 .limit(10)
-                .forEach(de -> out.print("de} "));
+                .forEach(de -> out.print(de + " "));
     }
 }

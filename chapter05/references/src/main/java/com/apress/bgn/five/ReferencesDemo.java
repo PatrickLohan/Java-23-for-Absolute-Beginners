@@ -34,7 +34,7 @@ import com.apress.bgn.four.hierarchy.*;
  * Created by iuliana.cosmina  on 12/02/2024
  */
 public class ReferencesDemo {
-    public static void main() {
+    void main() {
         // Listing 5-14
         /*Performer performer = new Performer("John", 47, 1.91f, Gender.MALE);
         Human human = new Performer("Jack", 40, 1.91f, Gender.MALE);

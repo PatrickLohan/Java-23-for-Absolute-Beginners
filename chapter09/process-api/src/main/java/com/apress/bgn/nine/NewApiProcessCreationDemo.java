@@ -41,7 +41,7 @@ import java.util.concurrent.ExecutionException;
 public class NewApiProcessCreationDemo {
     private static final Logger log = LoggerFactory.getLogger(NewApiProcessCreationDemo.class);
 
-    public static void main(String... args) throws IOException, InterruptedException, ExecutionException {
+    void main() throws IOException, InterruptedException, ExecutionException {
         ProcessBuilder processBuilder = new ProcessBuilder();
         processBuilder.command("/bin/sh", "-c", "echo Java home: $JAVA_HOME");
         processBuilder.inheritIO();

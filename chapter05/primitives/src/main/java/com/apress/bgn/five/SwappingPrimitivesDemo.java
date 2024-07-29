@@ -31,7 +31,8 @@ package com.apress.bgn.five;
  * Created by iuliana.cosmina on 21/04/2024
  */
 public class SwappingPrimitivesDemo {
-    public static void main(String... args) {
+
+    void main() {
         int k = 42;
         int q = 44;
         swap(k, q);

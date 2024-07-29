@@ -1,0 +1,10 @@
+### GET request to simple server created by MostSimpleServer
+GET http://localhost:8080/
+# expect 200 + a list of all entries under 'using-simplewebserver'
+###
+
+
+### PATCH request to example server
+POST http://localhost:8080/
+# expect 405 Method Not Allowed
+###

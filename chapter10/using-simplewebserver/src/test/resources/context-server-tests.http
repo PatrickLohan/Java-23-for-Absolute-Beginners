@@ -1,0 +1,14 @@
+### GET request to simple server created by ContextServer
+GET http://localhost:8080/simple/
+# expect 200 + contents of 'index.html'
+###
+
+### GET request to simple server
+GET http://localhost:8080/simple/index.html
+# expect 200 + contents of 'index.html'
+###
+
+### GET request to simple server
+GET http://localhost:8080/simple/home.html
+# expect 200 + contents of 'home.html'
+###

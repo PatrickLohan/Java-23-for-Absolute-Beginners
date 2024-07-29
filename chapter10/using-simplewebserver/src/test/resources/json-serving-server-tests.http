@@ -1,0 +1,9 @@
+### GET request to simple server created by JsonServingServer
+GET http://localhost:8080/simple/simple.json
+# expect 200 + contents of 'simple.json'
+###
+
+### PATCH request to example server
+PATCH http://localhost:8080/simple/simple.json
+# expect 405 Method Not Allowed
+###

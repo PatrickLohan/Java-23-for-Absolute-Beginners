@@ -36,7 +36,7 @@ import static java.lang.System.out;
  */
 public class NewAgeStringDemo {
 
-    public static void main() {
+    void main() {
         var lyrics = """
                     Do not waste this evening
                \tBaby, I'm begging you!   

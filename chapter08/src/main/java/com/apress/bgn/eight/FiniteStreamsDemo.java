@@ -83,7 +83,7 @@ public class FiniteStreamsDemo {
         out.println("Print elements of stream generated with 'takeWhile(s -> s % 3 == 0)' from ordered stream ");
         Stream<Integer> orderedStream = List.of( 3, 6, 9, 11, 12, 13, 15).stream();
         Stream<Integer> result = orderedStream.takeWhile(s -> s % 3 == 0);
-        result.forEach(s -> out.print("s} "));
+        result.forEach(s -> out.print(s + " "));
 
         out.println("\nPrint elements of stream generated with 'takeWhile(s -> s % 3 == 0)' from unordered stream");
         //while (true) {
@@ -91,17 +91,17 @@ public class FiniteStreamsDemo {
         result = unorderedStream
                 //.parallel()
                 .takeWhile(s -> s % 3 == 0);
-        result.forEach(s -> out.print("s} "));
+        result.forEach(s -> out.print(s + " "));
         //}
 
         out.println("\nPrint elements of stream generated with 'dropWhile(s -> s % 3 == 0)' from ordered stream ");
         List.of( 3, 6, 9, 11, 12, 13, 15).stream()
-                .dropWhile(s -> s % 3 == 0 ).forEach(s -> out.print("s} "));
+                .dropWhile(s -> s % 3 == 0 ).forEach(s -> out.print(s + " "));
 
         out.println("\nPrint elements of stream generated with 'dropWhile(s -> s % 3 == 0)' from unordered stream ");
         Set.of(3, 6, 9, 2, 4, 8, 12, 36, 18, 42, 11, 13).stream()
                 .parallel()
-                .dropWhile(s -> s % 3 == 0 ).forEach(s -> out.print("s} "));
+                .dropWhile(s -> s % 3 == 0 ).forEach(s -> out.print(s + " "));
 
     }
 }

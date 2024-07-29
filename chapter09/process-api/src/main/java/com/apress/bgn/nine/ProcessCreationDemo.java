@@ -42,7 +42,7 @@ public class ProcessCreationDemo {
     private static final Logger log =
             LoggerFactory.getLogger(ProcessCreationDemo.class);
 
-    public static void main(String... args){
+    void main(){
         try {
             Process exec = Runtime.getRuntime()
                     .exec(new String[] { "/bin/sh", "-c", "echo Java home: $JAVA_HOME" });

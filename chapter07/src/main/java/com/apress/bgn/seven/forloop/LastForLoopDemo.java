@@ -33,7 +33,7 @@ import static java.lang.System.out;
  * Created by iuliana.cosmina on 22/06/2024
  */
 public class LastForLoopDemo {
-    public static void main(String... args) {
+    public static void main() {
         int[] arr = {5, 1, 4, 2, 3};
         int i = -1;
         for (; i++ < arr.length -1;) {

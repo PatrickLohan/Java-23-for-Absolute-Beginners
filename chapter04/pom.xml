@@ -7,6 +7,7 @@
     <parent>
         <groupId>com.apress.bgn</groupId>
         <artifactId>java-23-for-absolute-beginners</artifactId>
+        <version>3.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>chapter04</artifactId>
@@ -26,7 +27,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.14.0</version>
+            <version>${commons.lang3.version}</version>
         </dependency>
 
         <!-- Necessary for IO operations -->
@@ -41,7 +42,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.32</version>
+            <version>${lombok.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

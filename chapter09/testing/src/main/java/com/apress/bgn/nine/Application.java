@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
 public class Application {
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-    public static void main(String... args) {
+    void main() {
         Account a1 = new Account("Gigi", 100, "12345");
         Account a2 = new Account("Pedala", 200, "2345");
         DbConnection conn = new DerbyDBConnection();

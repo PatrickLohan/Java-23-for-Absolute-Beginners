@@ -1,0 +1,15 @@
+{"book": {
+  "id": "978-1-4842-7080-6",
+  "name": "Java 23 for Absolute Beginners",
+  "value": "A LOT",
+  "content": {
+    "chapters": [
+      {"value": "Chapter 1", "title": "An Introduction to Java and its History"},
+      {"value": "Chapter 2", "title": "Preparing Your Development Environment"},
+      {"value": "Chapter 3", "title": "Getting Your Feet Wet"}
+    ],
+    "appendix" : [
+      {"value":  "Appendix A"}
+    ]
+  }
+}}

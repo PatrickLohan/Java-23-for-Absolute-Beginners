@@ -38,7 +38,7 @@ import java.util.List;
  */
 public class BadReferencesDemo {
 
-    public static void main() {
+    void main() {
         // Listing 5-16 , remove comment to trigger compile error
         /*Performer performer = new Performer("John", 47, 1.91f, Gender.MALE);
         Human human = performer;

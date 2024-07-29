@@ -32,7 +32,7 @@ package com.apress.bgn.five;
  */
 public class AnotherPrimitivesDemo {
 
-    public static void main(String... args) {
+    void main() {
         int k = 42;
         int q = k;
         System.out.println("k = " + k);
