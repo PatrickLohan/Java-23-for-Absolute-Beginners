@@ -1,0 +1,32 @@
+= Chapter 11 - Database sample extra info
+
+To install Docker read instructions on the Docker official site: https://docs.docker.com/get-docker/
+
+== MySQL
+
+To test the database connection examples use this docket container: https://hub.docker.com/_/mysql
+
+Example of command to start it locally:
+
+[source,shell]
+----
+# pull the docker image
+docker pull mysql:latest
+
+# using root user
+docker run -d -p 3306:3306 --name local-mysql -e MYSQL_ROOT_PASSWORD=mypass mysql:latest
+----
+
+CAUTION: If you read *Chapter 7*, you should already have the container set up.
+
+
+== PostgreSQL
+
+[source,shell]
+----
+# pull the docker image
+docker pull postgres:latest
+
+# using postgres user
+docker run -d -p 5432:5432 --name local-postgres -e POSTGRES_PASSWORD=mypass postgres:latest
+----

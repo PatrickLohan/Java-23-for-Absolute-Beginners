@@ -1,9 +1,12 @@
 <project name="${project.artifactId}">
 
     <bannerLeft>
-        <name>Java for Absolute Beginners, 3nd edition</name>
+        <name>Java 23 for Absolute Beginners, 3nd edition</name>
         <href>https://www.apress.com</href>
     </bannerLeft>
+
+    <publishDate position="right"/>
+    <version position="right"/>
 
     <skin>
         <groupId>org.apache.maven.skins</groupId>
@@ -41,10 +44,11 @@
             <item name="Building" href="README.html"/>
             <item name="Errata" href="Errata.html"/>
         </menu>
-        <footer>Copyright (c) 2021 Iuliana Cosmina</footer>
+        <footer>Copyright (c) 2024 Iuliana Cosmina</footer>
     </body>
 
     <poweredBy>
-        <logo name="Iuliana-Cosmina" href="https://iuliana-cosmina.com"/>
+        <logo name="Maven" href="https://maven.apache.org/"
+              img="https://maven.apache.org/images/logos/maven-feather.png"/>
     </poweredBy>
 </project>

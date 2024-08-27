@@ -56,7 +56,7 @@ public class DoWhileConnectionTester {
             var stmt = con.createStatement();
             var rs = stmt.executeQuery("select * from user");
             while (rs.next()) {
-                out.println("rs.getString(1)} " + rs.getString(2));
+                out.println(rs.getString(1)  + " " + rs.getString(2));
             }
             con.close();
         } else {

@@ -12,8 +12,8 @@ Example of command to start it locally:
 docker pull mysql:latest
 
 # using root user
-docker run -d -p 3306:3306 -P --name local-mysql -e MYSQL_ROOT_PASSWORD=mypass -d mysql:latest
+docker run -d -p 3306:3306 --name local-mysql -e MYSQL_ROOT_PASSWORD=mypass mysql:latest
 
 # using sample user and sample schema
-docker run -d -p 3306:3306 -P --name local-mysql -d mysql:latest -e MYSQL_ROOT_PASSWORD=mypass MYSQL_USER=sample MYSQL_PASSWORD=sample MYSQL_DATABASE=sample
+docker run -d -p 3306:3306 --name local-mysql -e MYSQL_ROOT_PASSWORD=mypass -e MYSQL_USER=sample -e MYSQL_PASSWORD=sample -e MYSQL_DATABASE=sample mysql:latest
 ----

@@ -11,14 +11,15 @@
     </parent>
 
     <artifactId>chapter11</artifactId>
-    <name>Chapter 11</name>
+    <name>Chapter 11: Working with files</name>
     <description>Contains sources for Chapter 11.</description>
     <packaging>pom</packaging>
 
     <modules>
-       <!--  <module>read-write-file</module>
+        <module>read-write-file</module>
         <module>serialization</module>
-        <module>media-handling</module> -->
+        <module>media-handling</module>
+        <module>database-sample</module>
     </modules>
 
     <dependencies>
