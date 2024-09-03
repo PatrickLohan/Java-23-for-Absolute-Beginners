@@ -7,5 +7,5 @@ WORKDIR /usr/src/java-23-for-absolute-beginners
 
 EXPOSE 9000
 
-CMD mvn clean install site site:stage site:run -Pdocs
+CMD mvn clean install site site:stage site:run
 

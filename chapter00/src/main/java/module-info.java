@@ -1,6 +1,7 @@
 /**
  * Created by iuliana.cosmina on 29/12/20.
  * If you decomment the open declarative, the HelloWorld#main method in chapter01 will no longer fail with InaccessibleObjectException
+ * If you decomment the open declarative, the ReflectionDemo#main method in chapter03 will no longer fail with InaccessibleObjectException
  */
 /*open*/ module chapter.zero {
     requires transitive org.apache.logging.log4j.core;

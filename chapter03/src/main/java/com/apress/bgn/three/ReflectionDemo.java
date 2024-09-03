@@ -25,43 +25,36 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.thirteen;
+package com.apress.bgn.three;
 
-import com.apress.bgn.thirteen.util.NameGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.apress.bgn.zero.Base;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
-
-import static com.apress.bgn.thirteen.util.MemAudit.printBusyMemory;
-import static com.apress.bgn.thirteen.util.MemAudit.printTotalMemory;
-import static com.apress.bgn.thirteen.util.NameGenerator.RND;
+import java.lang.reflect.Field;
 
 /**
- * @author iuliana.cosmina on 28/08/2024
+ * @author iuliana.cosmina on 30/08/2024
  */
-public class MemoryConsumptionDemo {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MemoryConsumptionDemo.class);
-    private static NameGenerator nameGenerator = new NameGenerator();
+public class ReflectionDemo {
 
-    void main() {
-        printTotalMemory(LOGGER);
-        List<Singer> singers = new ArrayList<>();
-        IntStream.range(0, 1_000_000).forEach(i -> {
-            singers.add(genSinger());
-            if (i % 1000 == 0) {
-                printBusyMemory(LOGGER);
-            }
-        });
-    }
+    private static final Logger LOGGER = LogManager.getLogger();
 
-    private static Singer genSinger() {
-        Singer s = new Singer(nameGenerator.genName(), RND.nextDouble(), LocalDate.now());
-        LOGGER.info("JVM created: {}", s.getName());
-        return s;
+    void main(){
+        //testing access to Base class from module chapter.zero
+        Base base = new Base();
+        LOGGER.info("Base object was created? >  {} ", (base != null));
+
+        //testing reflection
+        try {
+            Field field = base.getClass().getDeclaredField("secret"); // <1>
+            field.setAccessible(true); // make the private field accessible
+            field.set(base, 1); // set the value of the private field
+            base.printSecret(); // call public method to display value of private field
+        } catch (NoSuchFieldException nsf) {
+            LOGGER.error("Field 'secret' cannot be accessed!" );
+        } catch (IllegalAccessException e) {
+            LOGGER.error("Field 'secret' cannot be set!" );
+        }
     }
 }
-

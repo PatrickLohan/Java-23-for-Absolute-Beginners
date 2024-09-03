@@ -36,6 +36,7 @@ import static com.apress.bgn.thirteen.util.MemAudit.printTotalMemory;
 
 import java.lang.ref.Cleaner;
 import java.time.LocalDate;
+import java.util.stream.IntStream;
 
 /**
  * @author iuliana.cosmina on 28/08/2024
@@ -58,13 +59,10 @@ public class CleanerDemo {
         }
 
         //filling memory with arrays of String to force GC to clean up Actor objects
-        for (int i = 1; i <= 10_000; i++) {
-            String[] s = new String[10_000];
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-            }
-        }
+        IntStream.range(0, 10_000).forEach(_ -> {
+            var s = new String[10_000];
+            try {Thread.sleep(1);} catch (InterruptedException _) {}
+        });
 
     }
 

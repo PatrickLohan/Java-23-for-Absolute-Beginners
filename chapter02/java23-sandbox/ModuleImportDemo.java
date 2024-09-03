@@ -25,43 +25,29 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.bgn.thirteen;
 
-import com.apress.bgn.thirteen.util.NameGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+/*import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;*/
+import module java.base;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
-
-import static com.apress.bgn.thirteen.util.MemAudit.printBusyMemory;
-import static com.apress.bgn.thirteen.util.MemAudit.printTotalMemory;
-import static com.apress.bgn.thirteen.util.NameGenerator.RND;
+import static java.lang.System.out;
 
 /**
- * @author iuliana.cosmina on 28/08/2024
+ * @author iuliana.cosmina on 02/09/2024
+ * https://openjdk.org/jeps/476
+ * Run with:
+ * > cd $workspace/chapter02/java23-sandbox
+ * >  java --enable-preview --source 23 ModuleImportDemo.java
  */
-public class MemoryConsumptionDemo {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MemoryConsumptionDemo.class);
-    private static NameGenerator nameGenerator = new NameGenerator();
-
-    void main() {
-        printTotalMemory(LOGGER);
-        List<Singer> singers = new ArrayList<>();
-        IntStream.range(0, 1_000_000).forEach(i -> {
-            singers.add(genSinger());
-            if (i % 1000 == 0) {
-                printBusyMemory(LOGGER);
-            }
-        });
-    }
-
-    private static Singer genSinger() {
-        Singer s = new Singer(nameGenerator.genName(), RND.nextDouble(), LocalDate.now());
-        LOGGER.info("JVM created: {}", s.getName());
-        return s;
+public class ModuleImportDemo {
+    void main(){
+        String[] singers = new String[] { "john mayer", "danny o'donoghue", "nina simone" };
+        Map<String, String> m =
+                Stream.of(singers)
+                        .collect(Collectors.toMap(s -> s.toUpperCase().substring(0,1),
+                                Function.identity()));
+        out.println(m);
     }
 }
-
