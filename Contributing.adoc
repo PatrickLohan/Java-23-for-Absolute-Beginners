@@ -23,7 +23,7 @@ If you notice any mistakes or confusing phrasing in the book contents, first con
 
 If the mistake you noticed is not in the Errata, write to the author directly mailto:iuliana.cosmina@gmail.com[iuliana.cosmina@gmail.com] and submit your observation. If a correction or clarification is necessary, the change will be added to the Errata together with mention of your contribution.
 Please provide chapter and page number where you found the error.
-If the book gets a new revision, your name will appear in the '*Acknowledgements*' page.
+If the book gets a new revision, your name will appear on the '*Acknowledgements*' page.
 
 Thank you for your contribution!
 
