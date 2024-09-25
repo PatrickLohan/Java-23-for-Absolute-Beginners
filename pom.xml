@@ -6,7 +6,7 @@
 
     <groupId>com.apress.bgn</groupId>
     <artifactId>java-23-for-absolute-beginners</artifactId>
-    <version>3.0-SNAPSHOT</version> <!-- read from .mvn/maven.config in Maven 4.0.0, replace with ${revision}-->
+    <version>3.0</version> <!-- read from .mvn/maven.config in Maven 4.0.0, replace with ${revision}-->
     <packaging>pom</packaging> <!-- this is specific to the parent pom.xml -->
 
     <name>Java for Absolute Beginners, 3nd edition</name>
