@@ -31,6 +31,7 @@ import static java.lang.System.out;
 
 /**
  * @author iuliana.cosmina on 27/08/2024
+ * Use this class to inspect properties of the GC being used.
  */
 public class ShowGCDemo {
 

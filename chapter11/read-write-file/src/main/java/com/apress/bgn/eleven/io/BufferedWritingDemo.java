@@ -56,7 +56,7 @@ public class BufferedWritingDemo {
                 writer.write(entry);
                 writer.newLine();
             }
-            LOGGER.info("String written using BufferedWriter before Java 1.7");
+            LOGGER.info("String written using BufferedWriter before Java 7");
         } catch (IOException e) {
             LOGGER.info("Something went wrong! ", e);
         } finally {
@@ -81,7 +81,7 @@ public class BufferedWritingDemo {
                 }
             });
             wr.flush();
-            LOGGER.info("String written using BufferedWriter after Java 1.7");
+            LOGGER.info("String written using BufferedWriter after Java 7");
         } catch (IOException e) {
             LOGGER.debug("Something went wrong! ", e);
         }
@@ -97,7 +97,7 @@ public class BufferedWritingDemo {
                 }
             });
             wr.flush();
-            LOGGER.info("String written using BufferedWriter after Java 1.8");
+            LOGGER.info("String written using BufferedWriter after Java 8");
         } catch (IOException e) {
             LOGGER.debug("Something went wrong! ", e);
         }

@@ -11,5 +11,5 @@ void main(){
             Stream.of(singers)
                     .collect(Collectors.toMap(s -> s.toUpperCase().substring(0,1),
                             Function.identity()));
-    System.out.println(m);
+    println(m);
 }
