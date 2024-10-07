@@ -27,5 +27,5 @@ SOFTWARE.
 */
 module chapter.nine.args {
     exports com.apress.bgn.algs;
-    requires org.slf4j;
+    requires transitive org.slf4j;
 }

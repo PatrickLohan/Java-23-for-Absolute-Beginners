@@ -25,6 +25,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-module chapter.nine.log4j {
-    requires chapter.nine.args;
+package com.apress.bgn.three.transitive;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+/**
+ * Created by iuliana.cosmina on 29/08/2021
+ * This class is referenced in Appendix A.
+ * This class is used to test that the transitive module dependency works.
+ */
+public class LoggingSample {
+    static final Logger logger = LogManager.getLogger(LoggingSample.class.getName());
+
+    public static void main(String... args) {
+        logger.info("This means that \"requires transitive\" in module \"chapter.zero\" works.");
+    }
 }
