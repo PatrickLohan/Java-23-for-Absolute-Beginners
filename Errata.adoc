@@ -1,5 +1,11 @@
-== Errata for Java for Absolute Beginners
+= Errata for Java for Absolute Beginners
 
 
 _Nothing here yet, hopefully it stays this way! ;)_
+
+* "Hello World" should be "Hello, World" (Oxford comma)
+* p20: mismatch build numbers
+* p32: Valhalla "use memory *less* efficiently" should be *more*
+* p41: some small errors with linux terminology
+* p63: lib package does not exit. have tried com.provider which also failed
 

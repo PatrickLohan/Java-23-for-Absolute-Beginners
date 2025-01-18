@@ -1,6 +1,6 @@
 class Practice03 {
     public static void main(String[] args) {
-       System.out.println("Practice03: " +lib.HelloProvider.get());
+       System.out.println("Practice03: " + lib.HelloProvider.get());
     }
 }
 
